@@ -3,21 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurante — Don Benito | La Carta</title>
-  <!-- Enlace al CSS desde la carpeta donbenito -->
+  <title>Restaurante — Don Benito</title>
+  <!-- Enlace al CSS original -->
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Fuentes de Google para tipografía mejorada -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- NAVEGACIÓN PRINCIPAL -->
+  <!-- NAVEGACIÓN -->
   <header>
     <nav>
-      <!-- Logo con emoji para identidad visual -->
       <div class="logo"><a href="../">🍽️ La Carta</a></div>
-      <!-- Enlaces con iconos para mejor navegación -->
       <ul class="nav-links">
         <li><a href="../">🏠 Inicio</a></li>
         <li><a href="../madrid/">🏛️ Madrid</a></li>
@@ -26,315 +20,102 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION - Temática extremeña -->
-  <section class="hero hero-donbenito" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1400&q=80');">
-    <div class="hero-content">
-      <!-- Badge distintivo para crear exclusividad -->
-      <span class="hero-badge">🌾 Sabores de Extremadura</span>
-      <h1 class="hero-title">Esencia de Don Benito</h1>
-      <p class="hero-subtitle">Cocina tradicional extremeña con productos de la tierra</p>
-      <!-- Estadísticas para generar confianza -->
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">40+</span>
-          <span class="stat-label">Años de historia</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">4.9★</span>
-          <span class="stat-label">Valoración clientes</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BANNER PROMOCIONAL - Crear urgencia -->
-  <section class="promo-banner">
-    <div class="container">
-      <div class="promo-content">
-        <span class="promo-icon">🎊</span>
-        <div class="promo-text">
-          <strong>¡Menú Degustación!</strong> Prueba lo mejor de Extremadura por 18€
-        </div>
-        <a href="#reservas" class="promo-cta">Descubrir Menú</a>
-      </div>
-    </div>
+  <!-- HERO SECTION -->
+  <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1400&q=80');">
+    <h2>🌾 Esencia de Don Benito</h2>
   </section>
 
   <main class="container">
-    <!-- SECCIÓN DEL MENÚ EXTREMEÑO -->
-    <section class="menu-section">
-      <div class="section-header">
-        <span class="section-badge">🍖 Menú Extremeño</span>
-        <h2>Especialidades de Don Benito</h2>
-        <p class="section-subtitle">Platos tradicionales con productos de nuestra tierra</p>
-      </div>
+    <h1>Menú recomendado — Don Benito</h1>
+    <p>Cocina tradicional extremeña con productos de la tierra.</p>
 
-      <!-- Grid de platos con elementos visuales y de marketing -->
-      <div class="menu-grid">
-        <!-- MIGAS EXTREMEÑAS - Plato destacado -->
-        <div class="card featured-card">
-          <div class="card-badge">🏆 Especialidad</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?auto=format&fit=crop&w=800&q=80" alt="Migas extremeñas">
-            <!-- Overlay para destacar características -->
-            <div class="image-overlay">
-              <span class="overlay-text">👨‍🍳 Receta ancestral</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Migas Extremeñas</h3>
-            <p>Migas tradicionales con chorizo, panceta y pimientos</p>
-            <!-- Características del plato -->
-            <div class="card-features">
-              <span class="feature">🥖 Pan del día</span>
-              <span class="feature">🌶️ Pimentón de la Vera</span>
-            </div>
-            <!-- Precio con información adicional -->
-            <div class="price-container">
-              <span class="price">10€</span>
-              <span class="portion">Ración abundante</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TORTA DEL CASAR -->
-        <div class="card">
-          <div class="card-badge premium">💎 D.O. Protegida</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=800&q=80" alt="Torta del Casar">
-            <div class="image-overlay">
-              <span class="overlay-text">🧀 Queso artesano</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Torta del Casar</h3>
-            <p>Queso cremoso con Denominación de Origen</p>
-            <div class="card-features">
-              <span class="feature">🐑 Leche de oveja</span>
-              <span class="feature">🏅 D.O. Protegida</span>
-            </div>
-            <div class="price-container">
-              <span class="price">14€</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CALDERETA DE CORDERO -->
-        <div class="card">
-          <div class="card-badge trending">🔥 Más Pedido</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80" alt="Caldereta de cordero">
-            <div class="image-overlay">
-              <span class="overlay-text">🍲 Cocción lenta</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Caldereta de Cordero</h3>
-            <p>Cordero tierno con patatas y hierbas aromáticas</p>
-            <div class="card-features">
-              <span class="feature">🐏 Cordero local</span>
-              <span class="feature">⏱️ Cocción 3 horas</span>
-            </div>
-            <div class="price-container">
-              <span class="price">16€</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- BACALAO MONACAL -->
-        <div class="card">
-          <div class="card-badge seasonal">🌟 Temporada</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1580959375944-35d5b7b1f9a7?auto=format&fit=crop&w=800&q=80" alt="Bacalao monacal">
-            <div class="image-overlay">
-              <span class="overlay-text">🐟 Receta del convento</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Bacalao Monacal</h3>
-            <p>Bacalao al horno con patatas y cebolla caramelizada</p>
-            <div class="card-features">
-              <span class="feature">🐟 Bacalao premium</span>
-              <span class="feature">🧅 Cebolla confitada</span>
-            </div>
-            <div class="price-container">
-              <span class="price">15€</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PRUEBA DE CERDO IBÉRICO -->
-        <div class="card">
-          <div class="card-badge local">🏠 Del terruño</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=800&q=80" alt="Presa ibérica">
-            <div class="image-overlay">
-              <span class="overlay-text">🐷 Ibérico de bellota</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Presa Ibérica a la Brasa</h3>
-            <p>Pieza selecta de cerdo ibérico con guarnición</p>
-            <div class="card-features">
-              <span class="feature">🔥 A la brasa</span>
-              <span class="feature">🥩 Carne jugosa</span>
-            </div>
-            <div class="price-container">
-              <span class="price">19€</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ENSALADA CAMPERA -->
-        <div class="card">
-          <div class="card-badge fresh">🥗 Fresco</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Ensalada campera">
-            <div class="image-overlay">
-              <span class="overlay-text">🌱 Huerta local</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Ensalada Campera</h3>
-            <p>Tomate, atún, huevo, patata y aceite de oliva virgen</p>
-            <div class="card-features">
-              <span class="feature">🍅 Tomate de huerta</span>
-              <span class="feature">🫒 AOVE extremeño</span>
-            </div>
-            <div class="price-container">
-              <span class="price">8€</span>
-            </div>
-          </div>
+    <!-- GRID DE PLATOS -->
+    <div class="grid">
+      <!-- MIGAS EXTREMEÑAS -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?auto=format&fit=crop&w=800&q=80" alt="Migas extremeñas">
+        <div class="card-content">
+          <h3>🏆 Migas Extremeñas</h3>
+          <p>Migas tradicionales con chorizo, panceta y pimientos. Pan del día con pimentón de la Vera.</p>
+          <div class="price">10 €</div>
         </div>
       </div>
-    </section>
 
-    <!-- SECCIÓN DE TESTIMONIOS - Prueba social -->
-    <section class="reviews-section">
-      <div class="section-header">
-        <span class="section-badge">💬 Testimonios</span>
-        <h2>Lo que dicen nuestros comensales</h2>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p>"Las migas están de escándalo. Como las de mi pueblo."</p>
-          <div class="reviewer">
-            <strong>José Luis Pérez</strong>
-            <span>Cliente habitual</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p>"La caldereta de cordero es increíble. Muy recomendable."</p>
-          <div class="reviewer">
-            <strong>Elena Fernández</strong>
-            <span>Visitante de Badajoz</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p>"Ambiente acogedor y comida casera auténtica."</p>
-          <div class="reviewer">
-            <strong>Antonio García</strong>
-            <span>Local</span>
-          </div>
+      <!-- TORTA DEL CASAR -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=800&q=80" alt="Torta del Casar">
+        <div class="card-content">
+          <h3>💎 Torta del Casar</h3>
+          <p>Queso cremoso con Denominación de Origen. Leche de oveja artesanal.</p>
+          <div class="price">14 €</div>
         </div>
       </div>
-    </section>
 
-    <!-- SECCIÓN DE UBICACIÓN Y HORARIOS -->
-    <section class="location-section">
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">📍</div>
-          <h3>Ubicación</h3>
-          <p><strong>Plaza de España, Don Benito</strong><br>
-          Centro de la ciudad<br>
-          Badajoz, Extremadura</p>
-          <!-- Características de la ubicación -->
-          <div class="location-features">
-            <span class="feature">🅿️ Parking gratuito</span>
-            <span class="feature">♿ Acceso adaptado</span>
-            <span class="feature">🏛️ Centro histórico</span>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">🕐</div>
-          <h3>Horarios</h3>
-          <div class="schedule">
-            <div class="schedule-item">
-              <span><strong>Lunes - Viernes:</strong></span>
-              <span>13:00 - 16:00 | 20:00 - 23:00</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Sábados:</strong></span>
-              <span>13:00 - 16:30 | 20:00 - 23:30</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Domingos:</strong></span>
-              <span>13:00 - 16:30</span>
-            </div>
-          </div>
+      <!-- CALDERETA DE CORDERO -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80" alt="Caldereta de cordero">
+        <div class="card-content">
+          <h3>🔥 Caldereta de Cordero</h3>
+          <p>Cordero tierno con patatas y hierbas aromáticas. Cocción lenta de 3 horas.</p>
+          <div class="price">16 €</div>
         </div>
       </div>
-    </section>
 
-    <!-- SECCIÓN DE RESERVAS - Call to Action principal -->
-    <section class="reservations-section" id="reservas">
-      <div class="reservation-container">
-        <div class="reservation-content">
-          <div class="reservation-icon">📱</div>
-          <h3>Reserva en Don Benito</h3>
-          <p>Descubre los auténticos sabores de Extremadura. ¡Te esperamos!</p>
-
-          <!-- Beneficios de reservar -->
-          <div class="reservation-benefits">
-            <div class="benefit">
-              <span class="benefit-icon">🍷</span>
-              <span>Vino de la tierra de cortesía</span>
-            </div>
-            <div class="benefit">
-              <span class="benefit-icon">🎁</span>
-              <span>Postre especial</span>
-            </div>
-            <div class="benefit">
-              <span class="benefit-icon">👨‍👩‍👧‍👦</span>
-              <span>Ambiente familiar</span>
-            </div>
-          </div>
-
-          <!-- Botón principal de WhatsApp -->
-          <a class="btn btn-primary" href="https://wa.me/+34924123789?text=Hola%20quiero%20reservar%20en%20Don%20Benito%20para%20el%20día%20__%20a%20las%20__" target="_blank">
-            <span class="btn-icon">💬</span>
-            Reservar por WhatsApp
-          </a>
-
-          <!-- Contacto alternativo -->
-          <div class="contact-alternatives">
-            <p>También puedes llamarnos:</p>
-            <a href="tel:+34924123789" class="phone-link">📞 +34 924 123 789</a>
-          </div>
+      <!-- BACALAO MONACAL -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580959375944-35d5b7b1f9a7?auto=format&fit=crop&w=800&q=80" alt="Bacalao monacal">
+        <div class="card-content">
+          <h3>🐟 Bacalao Monacal</h3>
+          <p>Bacalao al horno con patatas y cebolla caramelizada. Receta del convento.</p>
+          <div class="price">15 €</div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <!-- FOOTER - Información adicional -->
-  <footer>
-    <div class="footer-content">
-      <p>© 2025 La Carta — Sabores tradicionales de Don Benito</p>
-      <div class="footer-social">
-        <span>Síguenos:</span>
-        <a href="#">📘 Facebook</a>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🐦 Twitter</a>
+      <!-- PRESA IBÉRICA -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=800&q=80" alt="Presa ibérica">
+        <div class="card-content">
+          <h3>🐷 Presa Ibérica a la Brasa</h3>
+          <p>Pieza selecta de cerdo ibérico de bellota a la brasa con guarnición.</p>
+          <div class="price">19 €</div>
+        </div>
+      </div>
+
+      <!-- ENSALADA CAMPERA -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Ensalada campera">
+        <div class="card-content">
+          <h3>🥗 Ensalada Campera</h3>
+          <p>Tomate, atún, huevo, patata y aceite de oliva virgen extra extremeño.</p>
+          <div class="price">8 €</div>
+        </div>
       </div>
     </div>
-  </footer>
+
+    <!-- UBICACIÓN -->
+    <h3>📍 Ubicación</h3>
+    <p><strong>Plaza de España, Don Benito</strong> — Centro histórico de Badajoz, Extremadura.<br>
+    🅿️ Parking gratuito · ♿ Acceso adaptado · 🏛️ A 2 min del centro</p>
+
+    <!-- HORARIOS -->
+    <h3>🕐 Horarios</h3>
+    <p>
+      <strong>Lunes - Viernes:</strong> 13:00 - 16:00 | 20:00 - 23:00<br>
+      <strong>Sábados:</strong> 13:00 - 16:30 | 20:00 - 23:30<br>
+      <strong>Domingos:</strong> 13:00 - 16:30
+    </p>
+
+    <!-- RESERVAS -->
+    <h3>📱 Reservas</h3>
+    <p>Descubre los auténticos sabores de Extremadura. ¡Te esperamos!<br>
+      <strong>Beneficios:</strong> 🍷 Vino de cortesía · 🎁 Postre especial · 👨‍👩‍👧‍👦 Ambiente familiar
+    </p>
+    <p>
+      <a class="btn" href="https://wa.me/+34924123789?text=Hola%20quiero%20reservar%20en%20Don%20Benito%20para%20el%20día%20__%20a%20las%20__" target="_blank">💬 Reservar por WhatsApp</a>
+    </p>
+    <p>También puedes llamarnos: <strong>📞 +34 924 123 789</strong></p>
+  </main>
+
+  <footer>© 2025 La Carta — Sabores tradicionales de Don Benito</footer>
 </body>
 </html>
