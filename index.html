@@ -1,78 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>La Carta — Restaurante Ficticio</title>
-  <style>
-    :root{--pad:16px;--accent:#222;}
-    body{font-family:Inter,system-ui,Arial; margin:0; background:#fafafa; color:#111;}
-    header{background:#fff; padding:var(--pad); box-shadow:0 2px 6px rgba(0,0,0,.06); position:sticky; top:0;}
-    h1{margin:0; font-size:1.25rem;}
-    .container{padding:var(--pad);}
-    .section{margin-top:18px;}
-    .item{display:flex; justify-content:space-between; align-items:center; padding:12px; background:#fff; margin-bottom:8px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
-    .item .name{font-weight:600;}
-    .item .desc{font-size:.9rem; color:#666;}
-    .price{font-weight:700;}
-    .btns{display:flex; gap:10px; margin-top:12px;}
-    .btn{padding:10px 12px; border-radius:10px; text-decoration:none; background:var(--accent); color:#fff; font-weight:600;}
-    @media (min-width:700px){ .container{max-width:720px; margin:0 auto;} }
-  </style>
+  <meta charset="UTF-8">
+  <title>PruebaRest</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header><h1>🍽️ Restaurante Ficticio</h1></header>
-  <main class="container">
-    <p class="section">Bienvenido — abre el menú y, si quieres, pide directo por WhatsApp.</p>
+  <header>
+    <h1>PruebaRest 🍽️</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre Nosotros</a>
+      <a href="contact.html">Contacto</a>
+      <a href="restaurantes/madrid.html">Madrid</a>
+      <a href="restaurantes/sevilla.html">Sevilla</a>
+      <a href="restaurantes/donbenito.html">Don Benito</a>
+    </nav>
+  </header>
 
-    <div class="section">
-      <h2>Entrantes</h2>
-      <div class="item">
-        <div>
-          <div class="name">Croquetas caseras</div>
-          <div class="desc">6 unidades, jamón</div>
-        </div>
-        <div class="price">6 €</div>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="name">Ensalada César</div>
-          <div class="desc">Lechuga, pollo, parmesano</div>
-        </div>
-        <div class="price">8 €</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Platos</h2>
-      <div class="item">
-        <div>
-          <div class="name">Entrecot</div>
-          <div class="desc">250g, patatas</div>
-        </div>
-        <div class="price">15 €</div>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="name">Pasta al pesto</div>
-          <div class="desc">Pasta fresca</div>
-        </div>
-        <div class="price">10 €</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Pedido / Reservas</h2>
-      <div class="btns">
-        <!-- Cambia +34XXXXXXXXX por tu número (ej: +34123456789) -->
-        <a class="btn" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20-%20Nombre:%20_%20%20Fecha/Hora:%20_" target="_blank" rel="noopener">Reservar por WhatsApp</a>
-        <a class="btn" href="mailto:tuemail@ejemplo.com?subject=Reserva%20Restaurante%20Ficticio">Reservar por email</a>
-      </div>
-    </div>
-
-    <footer style="margin-top:24px; color:#666; font-size:.9rem;">Escanea el QR en la mesa para abrir esta carta en tu móvil.</footer>
+  <main>
+    <h2>Bienvenido a PruebaRest</h2>
+    <p>Descubre los mejores restaurantes de cada ciudad al mejor precio.</p>
   </main>
 </body>
 </html>
