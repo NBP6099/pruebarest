@@ -31,4 +31,29 @@ body {
     margin-top: 10px;
     border-radius: 5px;
   }
+  /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Para pantallas grandes (ordenador) */
+  .menu {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Para pantallas pequeñas (móvil) */
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .card {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
   
