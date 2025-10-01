@@ -2,25 +2,95 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>PruebaRest</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartas Interactivas</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+    body{background:#f9f9f9;color:#333;}
+
+    /* NAV */
+    header{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:16px;}
+    nav h1{font-size:1.5rem;color:#e63946;font-weight:700;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#333;font-weight:500;transition:.3s;}
+    nav ul li a:hover{color:#e63946;}
+
+    /* HERO */
+    .hero{
+      background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color:#fff;height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    }
+    .hero h2{font-size:2.5rem;background:rgba(0,0,0,0.5);padding:20px;border-radius:10px;}
+
+    /* GRID DE CIUDADES */
+    .container{max-width:1100px;margin:40px auto;padding:0 20px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .card{
+      background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.08);
+      transition:transform .3s ease;
+    }
+    .card:hover{transform:translateY(-6px);}
+    .card img{width:100%;height:180px;object-fit:cover;}
+    .card-content{padding:16px;}
+    .card-content h3{margin-bottom:10px;color:#e63946;}
+    .card-content p{font-size:.95rem;margin-bottom:15px;color:#555;}
+    .btn{display:inline-block;padding:10px 16px;background:#e63946;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;transition:.3s;}
+    .btn:hover{background:#c91d2d;}
+
+    footer{text-align:center;margin:50px 0;color:#777;font-size:.9rem;}
+  </style>
 </head>
 <body>
   <header>
-    <h1>PruebaRest 🍽️</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="about.html">Sobre Nosotros</a>
-      <a href="contact.html">Contacto</a>
-      <a href="restaurantes/madrid.html">Madrid</a>
-      <a href="restaurantes/sevilla.html">Sevilla</a>
-      <a href="restaurantes/donbenito.html">Don Benito</a>
+      <h1>🍽️ La Carta</h1>
+      <ul>
+        <li><a href="madrid.html">Madrid</a></li>
+        <li><a href="sevilla.html">Sevilla</a></li>
+        <li><a href="donbenito.html">Don Benito</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <h2>Bienvenido a PruebaRest</h2>
-    <p>Descubre los mejores restaurantes de cada ciudad al mejor precio.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Tu menú digital, fácil y rápido</h2>
+  </section>
+
+  <!-- GRID DE CIUDADES -->
+  <main class="container">
+    <h2 style="text-align:center;margin-bottom:30px;">Elige tu ciudad</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Madrid">
+        <div class="card-content">
+          <h3>Madrid</h3>
+          <p>Cocido, calamares y tradición en cada bocado.</p>
+          <a class="btn" href="madrid.html">Ver carta</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Sevilla">
+        <div class="card-content">
+          <h3>Sevilla</h3>
+          <p>Tapas andaluzas, rebujito y alegría sin fin.</p>
+          <a class="btn" href="sevilla.html">Ver carta</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80" alt="Don Benito">
+        <div class="card-content">
+          <h3>Don Benito</h3>
+          <p>Migas, cochinillo y los sabores de Extremadura.</p>
+          <a class="btn" href="donbenito.html">Ver carta</a>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <footer>
+    © 2025 La Carta — Proyecto demo
+  </footer>
 </body>
 </html>
