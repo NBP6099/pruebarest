@@ -1,209 +1,265 @@
-# Create an enhanced version of index.html with better visual structure and marketing elements
-enhanced_html = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurante — Madrid | La Carta</title>
+  <title>Restaurante — Don Benito | La Carta</title>
+  <!-- Enlace al CSS desde la carpeta donbenito -->
   <link rel="stylesheet" href="../css/style.css">
+  <!-- Fuentes de Google para tipografía mejorada -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header>
     <nav>
+      <!-- Logo con emoji para identidad visual -->
       <div class="logo"><a href="../">🍽️ La Carta</a></div>
+      <!-- Enlaces con iconos para mejor navegación -->
       <ul class="nav-links">
         <li><a href="../">🏠 Inicio</a></li>
+        <li><a href="../madrid/">🏛️ Madrid</a></li>
         <li><a href="../sevilla/">🌟 Sevilla</a></li>
-        <li><a href="../donbenito/">⭐ Don Benito</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section with Enhanced Visuals -->
-  <section class="hero hero-madrid" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
+  <!-- HERO SECTION - Temática extremeña -->
+  <section class="hero hero-donbenito" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1400&q=80');">
     <div class="hero-content">
-      <span class="hero-badge">✨ Auténticos Sabores</span>
-      <h1 class="hero-title">Madrid Gastronómico</h1>
-      <p class="hero-subtitle">Tradición culinaria en el corazón de la capital</p>
+      <!-- Badge distintivo para crear exclusividad -->
+      <span class="hero-badge">🌾 Sabores de Extremadura</span>
+      <h1 class="hero-title">Esencia de Don Benito</h1>
+      <p class="hero-subtitle">Cocina tradicional extremeña con productos de la tierra</p>
+      <!-- Estadísticas para generar confianza -->
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">50+</span>
-          <span class="stat-label">Años de tradición</span>
+          <span class="stat-number">40+</span>
+          <span class="stat-label">Años de historia</span>
         </div>
         <div class="stat">
-          <span class="stat-number">4.8★</span>
-          <span class="stat-label">Valoración</span>
+          <span class="stat-number">4.9★</span>
+          <span class="stat-label">Valoración clientes</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Special Offers Banner -->
+  <!-- BANNER PROMOCIONAL - Crear urgencia -->
   <section class="promo-banner">
     <div class="container">
       <div class="promo-content">
-        <span class="promo-icon">🎉</span>
+        <span class="promo-icon">🎊</span>
         <div class="promo-text">
-          <strong>¡Oferta Especial!</strong> Menú completo por solo 15€ - Lunes a Viernes
+          <strong>¡Menú Degustación!</strong> Prueba lo mejor de Extremadura por 18€
         </div>
-        <a href="#reservas" class="promo-cta">Reservar Ahora</a>
+        <a href="#reservas" class="promo-cta">Descubrir Menú</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <!-- Menu Section with Better Structure -->
+    <!-- SECCIÓN DEL MENÚ EXTREMEÑO -->
     <section class="menu-section">
       <div class="section-header">
-        <span class="section-badge">🍽️ Nuestro Menú</span>
-        <h2>Especialidades de Madrid</h2>
-        <p class="section-subtitle">Platos tradicionales preparados con ingredientes frescos y recetas auténticas</p>
+        <span class="section-badge">🍖 Menú Extremeño</span>
+        <h2>Especialidades de Don Benito</h2>
+        <p class="section-subtitle">Platos tradicionales con productos de nuestra tierra</p>
       </div>
 
+      <!-- Grid de platos con elementos visuales y de marketing -->
       <div class="menu-grid">
+        <!-- MIGAS EXTREMEÑAS - Plato destacado -->
         <div class="card featured-card">
-          <div class="card-badge">🏆 Más Popular</div>
+          <div class="card-badge">🏆 Especialidad</div>
           <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido madrileño">
+            <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?auto=format&fit=crop&w=800&q=80" alt="Migas extremeñas">
+            <!-- Overlay para destacar características -->
             <div class="image-overlay">
-              <span class="overlay-text">👨‍🍳 Receta tradicional</span>
+              <span class="overlay-text">👨‍🍳 Receta ancestral</span>
             </div>
           </div>
           <div class="card-content">
-            <h3>Cocido Madrileño</h3>
-            <p>Sopa, garbanzos y carne — receta familiar de tres generaciones</p>
+            <h3>Migas Extremeñas</h3>
+            <p>Migas tradicionales con chorizo, panceta y pimientos</p>
+            <!-- Características del plato -->
             <div class="card-features">
-              <span class="feature">🌱 Ingredientes locales</span>
-              <span class="feature">⏱️ 45 min cocción lenta</span>
+              <span class="feature">🥖 Pan del día</span>
+              <span class="feature">🌶️ Pimentón de la Vera</span>
             </div>
+            <!-- Precio con información adicional -->
             <div class="price-container">
-              <span class="price-old">15€</span>
-              <span class="price">12€</span>
-              <span class="savings">¡Ahorra 3€!</span>
+              <span class="price">10€</span>
+              <span class="portion">Ración abundante</span>
             </div>
           </div>
         </div>
 
+        <!-- TORTA DEL CASAR -->
         <div class="card">
-          <div class="card-badge trending">🔥 Trending</div>
+          <div class="card-badge premium">💎 D.O. Protegida</div>
           <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Bocadillo de calamares">
+            <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=800&q=80" alt="Torta del Casar">
             <div class="image-overlay">
-              <span class="overlay-text">📍 Estilo Plaza Mayor</span>
+              <span class="overlay-text">🧀 Queso artesano</span>
             </div>
           </div>
           <div class="card-content">
-            <h3>Bocadillo de Calamares</h3>
-            <p>Crocante y en pan artesano, el clásico favorito de Madrid</p>
+            <h3>Torta del Casar</h3>
+            <p>Queso cremoso con Denominación de Origen</p>
             <div class="card-features">
-              <span class="feature">🦑 Calamares frescos</span>
-              <span class="feature">🥖 Pan artesano</span>
+              <span class="feature">🐑 Leche de oveja</span>
+              <span class="feature">🏅 D.O. Protegida</span>
             </div>
             <div class="price-container">
-              <span class="price">5€</span>
+              <span class="price">14€</span>
             </div>
           </div>
         </div>
 
-        <!-- New additional menu items for visual appeal -->
+        <!-- CALDERETA DE CORDERO -->
         <div class="card">
-          <div class="card-badge new">🆕 Nuevo</div>
+          <div class="card-badge trending">🔥 Más Pedido</div>
           <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80" alt="Tortilla española">
+            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80" alt="Caldereta de cordero">
             <div class="image-overlay">
-              <span class="overlay-text">🥚 Receta secreta</span>
+              <span class="overlay-text">🍲 Cocción lenta</span>
             </div>
           </div>
           <div class="card-content">
-            <h3>Tortilla Española Premium</h3>
-            <p>La tortilla más cremosa de Madrid con patatas gallegas</p>
+            <h3>Caldereta de Cordero</h3>
+            <p>Cordero tierno con patatas y hierbas aromáticas</p>
             <div class="card-features">
-              <span class="feature">🥔 Patatas gallegas</span>
-              <span class="feature">🥚 Huevos de corral</span>
+              <span class="feature">🐏 Cordero local</span>
+              <span class="feature">⏱️ Cocción 3 horas</span>
+            </div>
+            <div class="price-container">
+              <span class="price">16€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACALAO MONACAL -->
+        <div class="card">
+          <div class="card-badge seasonal">🌟 Temporada</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1580959375944-35d5b7b1f9a7?auto=format&fit=crop&w=800&q=80" alt="Bacalao monacal">
+            <div class="image-overlay">
+              <span class="overlay-text">🐟 Receta del convento</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Bacalao Monacal</h3>
+            <p>Bacalao al horno con patatas y cebolla caramelizada</p>
+            <div class="card-features">
+              <span class="feature">🐟 Bacalao premium</span>
+              <span class="feature">🧅 Cebolla confitada</span>
+            </div>
+            <div class="price-container">
+              <span class="price">15€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRUEBA DE CERDO IBÉRICO -->
+        <div class="card">
+          <div class="card-badge local">🏠 Del terruño</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=800&q=80" alt="Presa ibérica">
+            <div class="image-overlay">
+              <span class="overlay-text">🐷 Ibérico de bellota</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Presa Ibérica a la Brasa</h3>
+            <p>Pieza selecta de cerdo ibérico con guarnición</p>
+            <div class="card-features">
+              <span class="feature">🔥 A la brasa</span>
+              <span class="feature">🥩 Carne jugosa</span>
+            </div>
+            <div class="price-container">
+              <span class="price">19€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENSALADA CAMPERA -->
+        <div class="card">
+          <div class="card-badge fresh">🥗 Fresco</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Ensalada campera">
+            <div class="image-overlay">
+              <span class="overlay-text">🌱 Huerta local</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Ensalada Campera</h3>
+            <p>Tomate, atún, huevo, patata y aceite de oliva virgen</p>
+            <div class="card-features">
+              <span class="feature">🍅 Tomate de huerta</span>
+              <span class="feature">🫒 AOVE extremeño</span>
             </div>
             <div class="price-container">
               <span class="price">8€</span>
             </div>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-badge limited">⏰ Limitado</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?auto=format&fit=crop&w=800&q=80" alt="Paella madrileña">
-            <div class="image-overlay">
-              <span class="overlay-text">👨‍🍳 Chef especial</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3>Paella Madrileña</h3>
-            <p>Fusión única con ingredientes típicos de la región</p>
-            <div class="card-features">
-              <span class="feature">🍤 Mariscos frescos</span>
-              <span class="feature">🌶️ Pimentón de La Vera</span>
-            </div>
-            <div class="price-container">
-              <span class="price">18€</span>
-              <span class="portion">Para 2 personas</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Customer Reviews Section -->
+    <!-- SECCIÓN DE TESTIMONIOS - Prueba social -->
     <section class="reviews-section">
       <div class="section-header">
-        <span class="section-badge">⭐ Testimonios</span>
-        <h2>Lo que dicen nuestros clientes</h2>
+        <span class="section-badge">💬 Testimonios</span>
+        <h2>Lo que dicen nuestros comensales</h2>
       </div>
-      
+
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"El mejor cocido de Madrid. Ambiente familiar y auténtico."</p>
+          <p>"Las migas están de escándalo. Como las de mi pueblo."</p>
           <div class="reviewer">
-            <strong>María González</strong>
+            <strong>José Luis Pérez</strong>
             <span>Cliente habitual</span>
           </div>
         </div>
-        
+
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Los calamares están increíbles, volveré sin duda."</p>
+          <p>"La caldereta de cordero es increíble. Muy recomendable."</p>
           <div class="reviewer">
-            <strong>Carlos Ruiz</strong>
-            <span>Turista</span>
+            <strong>Elena Fernández</strong>
+            <span>Visitante de Badajoz</span>
           </div>
         </div>
-        
+
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Servicio excelente y precios justos. Muy recomendable."</p>
+          <p>"Ambiente acogedor y comida casera auténtica."</p>
           <div class="reviewer">
-            <strong>Ana Martín</strong>
+            <strong>Antonio García</strong>
             <span>Local</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Location and Contact Section -->
+    <!-- SECCIÓN DE UBICACIÓN Y HORARIOS -->
     <section class="location-section">
       <div class="info-grid">
         <div class="info-card">
           <div class="info-icon">📍</div>
           <h3>Ubicación</h3>
-          <p><strong>Plaza Mayor, Madrid</strong><br>
-          Centro histórico de la ciudad<br>
-          Metro: Sol (L1, L2, L3)</p>
+          <p><strong>Plaza de España, Don Benito</strong><br>
+          Centro de la ciudad<br>
+          Badajoz, Extremadura</p>
+          <!-- Características de la ubicación -->
           <div class="location-features">
-            <span class="feature">🅿️ Parking cercano</span>
-            <span class="feature">♿ Accesible</span>
-            <span class="feature">🚇 Metro a 2 min</span>
+            <span class="feature">🅿️ Parking gratuito</span>
+            <span class="feature">♿ Acceso adaptado</span>
+            <span class="feature">🏛️ Centro histórico</span>
           </div>
         </div>
 
@@ -213,61 +269,65 @@ enhanced_html = '''<!DOCTYPE html>
           <div class="schedule">
             <div class="schedule-item">
               <span><strong>Lunes - Viernes:</strong></span>
-              <span>12:00 - 16:00 | 19:00 - 23:00</span>
+              <span>13:00 - 16:00 | 20:00 - 23:00</span>
             </div>
             <div class="schedule-item">
               <span><strong>Sábados:</strong></span>
-              <span>12:00 - 23:00</span>
+              <span>13:00 - 16:30 | 20:00 - 23:30</span>
             </div>
             <div class="schedule-item">
               <span><strong>Domingos:</strong></span>
-              <span>12:00 - 17:00</span>
+              <span>13:00 - 16:30</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Enhanced Reservations Section -->
+    <!-- SECCIÓN DE RESERVAS - Call to Action principal -->
     <section class="reservations-section" id="reservas">
       <div class="reservation-container">
         <div class="reservation-content">
           <div class="reservation-icon">📱</div>
-          <h3>Reserva tu Mesa</h3>
-          <p>¡No te quedes sin probar nuestras especialidades! Reserva ahora y disfruta de una experiencia gastronómica única.</p>
-          
+          <h3>Reserva en Don Benito</h3>
+          <p>Descubre los auténticos sabores de Extremadura. ¡Te esperamos!</p>
+
+          <!-- Beneficios de reservar -->
           <div class="reservation-benefits">
             <div class="benefit">
-              <span class="benefit-icon">⚡</span>
-              <span>Confirmación inmediata</span>
+              <span class="benefit-icon">🍷</span>
+              <span>Vino de la tierra de cortesía</span>
             </div>
             <div class="benefit">
               <span class="benefit-icon">🎁</span>
-              <span>Descuento especial online</span>
+              <span>Postre especial</span>
             </div>
             <div class="benefit">
-              <span class="benefit-icon">📞</span>
-              <span>Atención personalizada</span>
+              <span class="benefit-icon">👨‍👩‍👧‍👦</span>
+              <span>Ambiente familiar</span>
             </div>
           </div>
 
-          <a class="btn btn-primary" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Madrid%20el%20día%20__%20a%20las%20__" target="_blank">
+          <!-- Botón principal de WhatsApp -->
+          <a class="btn btn-primary" href="https://wa.me/+34924123789?text=Hola%20quiero%20reservar%20en%20Don%20Benito%20para%20el%20día%20__%20a%20las%20__" target="_blank">
             <span class="btn-icon">💬</span>
             Reservar por WhatsApp
           </a>
-          
+
+          <!-- Contacto alternativo -->
           <div class="contact-alternatives">
             <p>También puedes llamarnos:</p>
-            <a href="tel:+34634056627" class="phone-link">📞 +34 634 056 627</a>
+            <a href="tel:+34924123789" class="phone-link">📞 +34 924 123 789</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER - Información adicional -->
   <footer>
     <div class="footer-content">
-      <p>© 2025 La Carta — Tradición culinaria madrileña</p>
+      <p>© 2025 La Carta — Sabores tradicionales de Don Benito</p>
       <div class="footer-social">
         <span>Síguenos:</span>
         <a href="#">📘 Facebook</a>
@@ -277,10 +337,4 @@ enhanced_html = '''<!DOCTYPE html>
     </div>
   </footer>
 </body>
-</html>'''
-
-# Write the enhanced HTML file
-with open('index_enhanced.html', 'w', encoding='utf-8') as f:
-    f.write(enhanced_html)
-    
-print("✅ Archivo index_enhanced.html creado con mejoras visuales y de marketing!")
+</html>
