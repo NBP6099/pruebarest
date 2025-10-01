@@ -3,57 +3,284 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurante — Sevilla</title>
+  <title>Restaurante — Sevilla | La Carta</title>
+  <!-- CSS relativo desde la carpeta sevilla hacia css -->
   <link rel="stylesheet" href="../css/style.css">
+  <!-- Fuentes mejoradas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- NAVEGACIÓN -->
   <header>
     <nav>
-      <div class="logo"><a href="../">La Carta</a></div>
+      <div class="logo"><a href="../">🍽️ La Carta</a></div>
       <ul class="nav-links">
-        <li><a href="../">Inicio</a></li>
-        <li><a href="../madrid/">Madrid</a></li>
-        <li><a href="../donbenito/">Don Benito</a></li>
+        <li><a href="../">🏠 Inicio</a></li>
+        <li><a href="../madrid/">🏛️ Madrid</a></li>
+        <li><a href="../donbenito/">⭐ Don Benito</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80');">
-    <h2>Sabores de Sevilla</h2>
-  </section>
-
-  <main class="container">
-    <h1>Tapas y platos — Sevilla</h1>
-
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="">
-        <div class="card-content">
-          <h3>Salmorejo</h3>
-          <p>Cremoso, con huevo y jamón.</p>
-          <div class="price">6 €</div>
+  <!-- HERO SECTION - Temática de Sevilla -->
+  <section class="hero hero-sevilla" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?auto=format&fit=crop&w=1400&q=80');">
+    <div class="hero-content">
+      <span class="hero-badge">🌻 Sabor Andaluz</span>
+      <h1 class="hero-title">Sevilla Flamenca</h1>
+      <p class="hero-subtitle">Tradición andaluza con el arte del buen comer</p>
+      <!-- Estadísticas específicas de Sevilla -->
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">35+</span>
+          <span class="stat-label">Años en Sevilla</span>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1516685018646-549d1e9bd0b4?auto=format&fit=crop&w=800&q=80" alt="">
-        <div class="card-content">
-          <h3>Pescaito frito</h3>
-          <p>Ración de pescado variado, típico andaluz.</p>
-          <div class="price">10 €</div>
+        <div class="stat">
+          <span class="stat-number">4.9★</span>
+          <span class="stat-label">Valoración local</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <h3>Ubicación</h3>
-    <p>Barrio de Triana, Sevilla — Cerca del Guadalquivir.</p>
+  <!-- BANNER PROMOCIONAL SEVILLA -->
+  <section class="promo-banner">
+    <div class="container">
+      <div class="promo-content">
+        <span class="promo-icon">🥘</span>
+        <div class="promo-text">
+          <strong>¡Tapas + Bebida!</strong> Ruta de tapas sevillanas por solo 12€
+        </div>
+        <a href="#reservas" class="promo-cta">Probar Ahora</a>
+      </div>
+    </div>
+  </section>
 
-    <h3>Reservas</h3>
-    <p>
-      <a class="btn" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Sevilla%20el%20día%20__%20a%20las%20__" target="_blank">Reservar por WhatsApp</a>
-    </p>
+  <main class="container">
+    <!-- MENÚ SEVILLANO -->
+    <section class="menu-section">
+      <div class="section-header">
+        <span class="section-badge">🥘 Menú Sevillano</span>
+        <h2>Especialidades Andaluzas</h2>
+        <p class="section-subtitle">Los sabores más auténticos de Andalucía en cada bocado</p>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Plato estrella - Gazpacho -->
+        <div class="card featured-card">
+          <div class="card-badge">🌟 Estrella de la casa</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80" alt="Gazpacho andaluz">
+            <div class="image-overlay">
+              <span class="overlay-text">🍅 Receta centenaria</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Gazpacho Sevillano</h3>
+            <p>El auténtico gazpacho con tomates de la vega sevillana</p>
+            <div class="card-features">
+              <span class="feature">🍅 Tomates de temporada</span>
+              <span class="feature">🥒 Verduras frescas</span>
+            </div>
+            <div class="price-container">
+              <span class="price">6€</span>
+              <span class="portion">Ración generosa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jamón Ibérico -->
+        <div class="card">
+          <div class="card-badge premium">💎 Premium</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1576020799627-aeac74d58064?auto=format&fit=crop&w=800&q=80" alt="Jamón ibérico">
+            <div class="image-overlay">
+              <span class="overlay-text">🐷 Bellota 100%</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Jamón Ibérico de Bellota</h3>
+            <p>Cortado a mano, de cerdos criados en libertad</p>
+            <div class="card-features">
+              <span class="feature">🏆 Denominación origen</span>
+              <span class="feature">✂️ Cortado a mano</span>
+            </div>
+            <div class="price-container">
+              <span class="price">22€</span>
+              <span class="portion">100g</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paella Andaluza -->
+        <div class="card">
+          <div class="card-badge seasonal">🌞 Temporada</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?auto=format&fit=crop&w=800&q=80" alt="Paella andaluza">
+            <div class="image-overlay">
+              <span class="overlay-text">🥘 Para compartir</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Paella Andaluza</h3>
+            <p>Con verduras de la huerta sevillana y mariscos frescos</p>
+            <div class="card-features">
+              <span class="feature">🦐 Langostinos frescos</span>
+              <span class="feature">🌶️ Pimentón dulce</span>
+            </div>
+            <div class="price-container">
+              <span class="price">16€</span>
+              <span class="portion">Mínimo 2 personas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flamenquín -->
+        <div class="card">
+          <div class="card-badge local">🏠 Especialidad local</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Flamenquín cordobés">
+            <div class="image-overlay">
+              <span class="overlay-text">🔥 Recién frito</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Flamenquín Sevillano</h3>
+            <p>Lomo de cerdo y jamón serrano rebozado y frito</p>
+            <div class="card-features">
+              <span class="feature">🥩 Carne de primera</span>
+              <span class="feature">🥖 Pan rallado casero</span>
+            </div>
+            <div class="price-container">
+              <span class="price">9€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS SEVILLA -->
+    <section class="reviews-section">
+      <div class="section-header">
+        <span class="section-badge">🗨️ Opiniones</span>
+        <h2>Nuestros clientes sevillanos</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"¡El gazpacho más bueno que he probado! Como el de mi abuela."</p>
+          <div class="reviewer">
+            <strong>Carmen Jiménez</strong>
+            <span>Sevillana de toda la vida</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"El jamón ibérico es espectacular. Volveremos seguro."</p>
+          <div class="reviewer">
+            <strong>Miguel Rodríguez</strong>
+            <span>Visitante</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Ambiente auténtico andaluz. Me transporta a mi tierra."</p>
+          <div class="reviewer">
+            <strong>Rocío Martín</strong>
+            <span>Cliente habitual</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN SEVILLA -->
+    <section class="location-section">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Ubicación</h3>
+          <p><strong>Barrio de Santa Cruz, Sevilla</strong><br>
+          Junto a la Catedral<br>
+          Metro: Puerta de Jerez</p>
+          <div class="location-features">
+            <span class="feature">🏛️ Centro histórico</span>
+            <span class="feature">🚶‍♂️ Zona peatonal</span>
+            <span class="feature">📸 Vistas a la Giralda</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Horarios</h3>
+          <div class="schedule">
+            <div class="schedule-item">
+              <span><strong>Martes - Sábado:</strong></span>
+              <span>13:00 - 16:00 | 20:00 - 24:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Domingos:</strong></span>
+              <span>13:00 - 17:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Lunes:</strong></span>
+              <span>Cerrado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVAS SEVILLA -->
+    <section class="reservations-section" id="reservas">
+      <div class="reservation-container">
+        <div class="reservation-content">
+          <div class="reservation-icon">📱</div>
+          <h3>Reserva tu Mesa en Sevilla</h3>
+          <p>Disfruta de la auténtica gastronomía andaluza en el corazón de Sevilla</p>
+
+          <div class="reservation-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">🥘</span>
+              <span>Tapas de cortesía</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">🎵</span>
+              <span>Ambiente flamenco</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">📞</span>
+              <span>Servicio personalizado</span>
+            </div>
+          </div>
+
+          <a class="btn btn-primary" href="https://wa.me/+34954123456?text=Hola%20quiero%20reservar%20en%20Sevilla%20para%20el%20día%20__%20a%20las%20__" target="_blank">
+            <span class="btn-icon">💬</span>
+            Reservar en Sevilla
+          </a>
+
+          <div class="contact-alternatives">
+            <p>También puedes llamarnos:</p>
+            <a href="tel:+34954123456" class="phone-link">📞 +34 954 123 456</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 La Carta — Demo</footer>
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 La Carta — Sabores auténticos de Sevilla</p>
+      <div class="footer-social">
+        <span>Síguenos:</span>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🐦 Twitter</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

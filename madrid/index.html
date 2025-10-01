@@ -3,57 +3,241 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurante — Madrid</title>
+  <title>Restaurante — Madrid | La Carta</title>
+  <!-- Enlace al CSS que está en la carpeta css -->
   <link rel="stylesheet" href="../css/style.css">
+  <!-- Fuentes de Google para mejor tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- HEADER - Navegación principal -->
   <header>
     <nav>
-      <div class="logo"><a href="../">La Carta</a></div>
+      <!-- Logo con emoji para mayor impacto visual -->
+      <div class="logo"><a href="../">🍽️ La Carta</a></div>
+      <!-- Enlaces de navegación con iconos -->
       <ul class="nav-links">
-        <li><a href="../">Inicio</a></li>
-        <li><a href="../sevilla/">Sevilla</a></li>
-        <li><a href="../donbenito/">Don Benito</a></li>
+        <li><a href="../">🏠 Inicio</a></li>
+        <li><a href="../sevilla/">🌟 Sevilla</a></li>
+        <li><a href="../donbenito/">⭐ Don Benito</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
-    <h2>Sabores de Madrid</h2>
-  </section>
-
-  <main class="container">
-    <h1>Menú recomendado — Madrid</h1>
-
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="">
-        <div class="card-content">
-          <h3>Cocido madrileño</h3>
-          <p>Sopa, garbanzos y carne — receta tradicional.</p>
-          <div class="price">12 €</div>
+  <!-- HERO SECTION - Sección principal con imagen de fondo -->
+  <section class="hero hero-madrid" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
+    <div class="hero-content">
+      <!-- Badge distintivo para crear exclusividad -->
+      <span class="hero-badge">✨ Auténticos Sabores</span>
+      <h1 class="hero-title">Madrid Gastronómico</h1>
+      <p class="hero-subtitle">Tradición culinaria en el corazón de la capital</p>
+      <!-- Estadísticas para generar confianza -->
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Años de tradición</span>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="">
-        <div class="card-content">
-          <h3>Bocadillo de calamares</h3>
-          <p>Crocante y en pan crujiente, clásico de Plaza Mayor.</p>
-          <div class="price">5 €</div>
+        <div class="stat">
+          <span class="stat-number">4.8★</span>
+          <span class="stat-label">Valoración</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <h3>Ubicación</h3>
-    <p>Plaza Mayor, Madrid — Centro histórico.</p>
+  <!-- BANNER PROMOCIONAL - Crear urgencia y ofertas especiales -->
+  <section class="promo-banner">
+    <div class="container">
+      <div class="promo-content">
+        <span class="promo-icon">🎉</span>
+        <div class="promo-text">
+          <strong>¡Oferta Especial!</strong> Menú completo por solo 15€ - Lunes a Viernes
+        </div>
+        <a href="#reservas" class="promo-cta">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
 
-    <h3>Reservas</h3>
-    <p>Envía por WhatsApp: <br>
-      <a class="btn" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Madrid%20el%20día%20__%20a%20las%20__" target="_blank">Reservar por WhatsApp</a>
-    </p>
+  <main class="container">
+    <!-- SECCIÓN DEL MENÚ - Productos organizados visualmente -->
+    <section class="menu-section">
+      <div class="section-header">
+        <span class="section-badge">🍽️ Nuestro Menú</span>
+        <h2>Especialidades de Madrid</h2>
+        <p class="section-subtitle">Platos tradicionales preparados con ingredientes frescos y recetas auténticas</p>
+      </div>
+
+      <!-- Grid de platos con elementos de marketing -->
+      <div class="menu-grid">
+        <!-- Plato destacado - Cocido Madrileño -->
+        <div class="card featured-card">
+          <div class="card-badge">🏆 Más Popular</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido madrileño">
+            <!-- Overlay con información adicional -->
+            <div class="image-overlay">
+              <span class="overlay-text">👨‍🍳 Receta tradicional</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Cocido Madrileño</h3>
+            <p>Sopa, garbanzos y carne — receta familiar de tres generaciones</p>
+            <!-- Características del plato -->
+            <div class="card-features">
+              <span class="feature">🌱 Ingredientes locales</span>
+              <span class="feature">⏱️ 45 min cocción lenta</span>
+            </div>
+            <!-- Precios con descuento para crear urgencia -->
+            <div class="price-container">
+              <span class="price-old">15€</span>
+              <span class="price">12€</span>
+              <span class="savings">¡Ahorra 3€!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bocadillo de Calamares con badge trending -->
+        <div class="card">
+          <div class="card-badge trending">🔥 Trending</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Bocadillo de calamares">
+            <div class="image-overlay">
+              <span class="overlay-text">📍 Estilo Plaza Mayor</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Bocadillo de Calamares</h3>
+            <p>Crocante y en pan artesano, el clásico favorito de Madrid</p>
+            <div class="card-features">
+              <span class="feature">🦑 Calamares frescos</span>
+              <span class="feature">🥖 Pan artesano</span>
+            </div>
+            <div class="price-container">
+              <span class="price">5€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE TESTIMONIOS - Prueba social -->
+    <section class="reviews-section">
+      <div class="section-header">
+        <span class="section-badge">⭐ Testimonios</span>
+        <h2>Lo que dicen nuestros clientes</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"El mejor cocido de Madrid. Ambiente familiar y auténtico."</p>
+          <div class="reviewer">
+            <strong>María González</strong>
+            <span>Cliente habitual</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Los calamares están increíbles, volveré sin duda."</p>
+          <div class="reviewer">
+            <strong>Carlos Ruiz</strong>
+            <span>Turista</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
+    <section class="location-section">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Ubicación</h3>
+          <p><strong>Plaza Mayor, Madrid</strong><br>
+          Centro histórico de la ciudad<br>
+          Metro: Sol (L1, L2, L3)</p>
+          <div class="location-features">
+            <span class="feature">🅿️ Parking cercano</span>
+            <span class="feature">♿ Accesible</span>
+            <span class="feature">🚇 Metro a 2 min</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Horarios</h3>
+          <div class="schedule">
+            <div class="schedule-item">
+              <span><strong>Lunes - Viernes:</strong></span>
+              <span>12:00 - 16:00 | 19:00 - 23:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Sábados:</strong></span>
+              <span>12:00 - 23:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Domingos:</strong></span>
+              <span>12:00 - 17:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE RESERVAS - CTA principal -->
+    <section class="reservations-section" id="reservas">
+      <div class="reservation-container">
+        <div class="reservation-content">
+          <div class="reservation-icon">📱</div>
+          <h3>Reserva tu Mesa</h3>
+          <p>¡No te quedes sin probar nuestras especialidades! Reserva ahora y disfruta de una experiencia gastronómica única.</p>
+
+          <!-- Beneficios de reservar online -->
+          <div class="reservation-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">⚡</span>
+              <span>Confirmación inmediata</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">🎁</span>
+              <span>Descuento especial online</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">📞</span>
+              <span>Atención personalizada</span>
+            </div>
+          </div>
+
+          <!-- Botón principal de WhatsApp -->
+          <a class="btn btn-primary" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Madrid%20el%20día%20__%20a%20las%20__" target="_blank">
+            <span class="btn-icon">💬</span>
+            Reservar por WhatsApp
+          </a>
+
+          <!-- Alternativas de contacto -->
+          <div class="contact-alternatives">
+            <p>También puedes llamarnos:</p>
+            <a href="tel:+34634056627" class="phone-link">📞 +34 634 056 627</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 La Carta — Demo</footer>
+  <!-- FOOTER - Información adicional y redes sociales -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 La Carta — Tradición culinaria madrileña</p>
+      <div class="footer-social">
+        <span>Síguenos:</span>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🐦 Twitter</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

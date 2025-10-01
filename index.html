@@ -1,59 +1,286 @@
-<!DOCTYPE html>
+# Create an enhanced version of index.html with better visual structure and marketing elements
+enhanced_html = '''<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Carta — Inicio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Restaurante — Madrid | La Carta</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">🍽️ La Carta</div>
+      <div class="logo"><a href="../">🍽️ La Carta</a></div>
       <ul class="nav-links">
-        <li><a href="madrid/">Madrid</a></li>
-        <li><a href="sevilla/">Sevilla</a></li>
-        <li><a href="donbenito/">Don Benito</a></li>
+        <li><a href="../">🏠 Inicio</a></li>
+        <li><a href="../sevilla/">🌟 Sevilla</a></li>
+        <li><a href="../donbenito/">⭐ Don Benito</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80');">
-    <h2>Tu menú digital — rápido y bonito</h2>
-  </section>
-
-  <main class="container">
-    <h2 style="text-align:center;margin-bottom:22px;">Elige la ciudad</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Madrid">
-        <div class="card-content">
-          <h3>Madrid</h3>
-          <p>Platos clásicos: cocido, calamares y más.</p>
-          <a class="btn" href="madrid/">Ver carta</a>
+  <!-- Hero Section with Enhanced Visuals -->
+  <section class="hero hero-madrid" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
+    <div class="hero-content">
+      <span class="hero-badge">✨ Auténticos Sabores</span>
+      <h1 class="hero-title">Madrid Gastronómico</h1>
+      <p class="hero-subtitle">Tradición culinaria en el corazón de la capital</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Años de tradición</span>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Sevilla">
-        <div class="card-content">
-          <h3>Sevilla</h3>
-          <p>Tapas andaluzas y ambiente cálido.</p>
-          <a class="btn" href="sevilla/">Ver carta</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80" alt="Don Benito">
-        <div class="card-content">
-          <h3>Don Benito</h3>
-          <p>Sabores de Extremadura — migas, cochinillo.</p>
-          <a class="btn" href="donbenito/">Ver carta</a>
+        <div class="stat">
+          <span class="stat-number">4.8★</span>
+          <span class="stat-label">Valoración</span>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Special Offers Banner -->
+  <section class="promo-banner">
+    <div class="container">
+      <div class="promo-content">
+        <span class="promo-icon">🎉</span>
+        <div class="promo-text">
+          <strong>¡Oferta Especial!</strong> Menú completo por solo 15€ - Lunes a Viernes
+        </div>
+        <a href="#reservas" class="promo-cta">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Menu Section with Better Structure -->
+    <section class="menu-section">
+      <div class="section-header">
+        <span class="section-badge">🍽️ Nuestro Menú</span>
+        <h2>Especialidades de Madrid</h2>
+        <p class="section-subtitle">Platos tradicionales preparados con ingredientes frescos y recetas auténticas</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="card featured-card">
+          <div class="card-badge">🏆 Más Popular</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido madrileño">
+            <div class="image-overlay">
+              <span class="overlay-text">👨‍🍳 Receta tradicional</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Cocido Madrileño</h3>
+            <p>Sopa, garbanzos y carne — receta familiar de tres generaciones</p>
+            <div class="card-features">
+              <span class="feature">🌱 Ingredientes locales</span>
+              <span class="feature">⏱️ 45 min cocción lenta</span>
+            </div>
+            <div class="price-container">
+              <span class="price-old">15€</span>
+              <span class="price">12€</span>
+              <span class="savings">¡Ahorra 3€!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-badge trending">🔥 Trending</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Bocadillo de calamares">
+            <div class="image-overlay">
+              <span class="overlay-text">📍 Estilo Plaza Mayor</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Bocadillo de Calamares</h3>
+            <p>Crocante y en pan artesano, el clásico favorito de Madrid</p>
+            <div class="card-features">
+              <span class="feature">🦑 Calamares frescos</span>
+              <span class="feature">🥖 Pan artesano</span>
+            </div>
+            <div class="price-container">
+              <span class="price">5€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- New additional menu items for visual appeal -->
+        <div class="card">
+          <div class="card-badge new">🆕 Nuevo</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80" alt="Tortilla española">
+            <div class="image-overlay">
+              <span class="overlay-text">🥚 Receta secreta</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Tortilla Española Premium</h3>
+            <p>La tortilla más cremosa de Madrid con patatas gallegas</p>
+            <div class="card-features">
+              <span class="feature">🥔 Patatas gallegas</span>
+              <span class="feature">🥚 Huevos de corral</span>
+            </div>
+            <div class="price-container">
+              <span class="price">8€</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-badge limited">⏰ Limitado</div>
+          <div class="card-image-container">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?auto=format&fit=crop&w=800&q=80" alt="Paella madrileña">
+            <div class="image-overlay">
+              <span class="overlay-text">👨‍🍳 Chef especial</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>Paella Madrileña</h3>
+            <p>Fusión única con ingredientes típicos de la región</p>
+            <div class="card-features">
+              <span class="feature">🍤 Mariscos frescos</span>
+              <span class="feature">🌶️ Pimentón de La Vera</span>
+            </div>
+            <div class="price-container">
+              <span class="price">18€</span>
+              <span class="portion">Para 2 personas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+      <div class="section-header">
+        <span class="section-badge">⭐ Testimonios</span>
+        <h2>Lo que dicen nuestros clientes</h2>
+      </div>
+      
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"El mejor cocido de Madrid. Ambiente familiar y auténtico."</p>
+          <div class="reviewer">
+            <strong>María González</strong>
+            <span>Cliente habitual</span>
+          </div>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Los calamares están increíbles, volveré sin duda."</p>
+          <div class="reviewer">
+            <strong>Carlos Ruiz</strong>
+            <span>Turista</span>
+          </div>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Servicio excelente y precios justos. Muy recomendable."</p>
+          <div class="reviewer">
+            <strong>Ana Martín</strong>
+            <span>Local</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location and Contact Section -->
+    <section class="location-section">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Ubicación</h3>
+          <p><strong>Plaza Mayor, Madrid</strong><br>
+          Centro histórico de la ciudad<br>
+          Metro: Sol (L1, L2, L3)</p>
+          <div class="location-features">
+            <span class="feature">🅿️ Parking cercano</span>
+            <span class="feature">♿ Accesible</span>
+            <span class="feature">🚇 Metro a 2 min</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Horarios</h3>
+          <div class="schedule">
+            <div class="schedule-item">
+              <span><strong>Lunes - Viernes:</strong></span>
+              <span>12:00 - 16:00 | 19:00 - 23:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Sábados:</strong></span>
+              <span>12:00 - 23:00</span>
+            </div>
+            <div class="schedule-item">
+              <span><strong>Domingos:</strong></span>
+              <span>12:00 - 17:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Reservations Section -->
+    <section class="reservations-section" id="reservas">
+      <div class="reservation-container">
+        <div class="reservation-content">
+          <div class="reservation-icon">📱</div>
+          <h3>Reserva tu Mesa</h3>
+          <p>¡No te quedes sin probar nuestras especialidades! Reserva ahora y disfruta de una experiencia gastronómica única.</p>
+          
+          <div class="reservation-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">⚡</span>
+              <span>Confirmación inmediata</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">🎁</span>
+              <span>Descuento especial online</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">📞</span>
+              <span>Atención personalizada</span>
+            </div>
+          </div>
+
+          <a class="btn btn-primary" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Madrid%20el%20día%20__%20a%20las%20__" target="_blank">
+            <span class="btn-icon">💬</span>
+            Reservar por WhatsApp
+          </a>
+          
+          <div class="contact-alternatives">
+            <p>También puedes llamarnos:</p>
+            <a href="tel:+34634056627" class="phone-link">📞 +34 634 056 627</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 La Carta — Gonsa23</footer>
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 La Carta — Tradición culinaria madrileña</p>
+      <div class="footer-social">
+        <span>Síguenos:</span>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🐦 Twitter</a>
+      </div>
+    </div>
+  </footer>
 </body>
-</html>
+</html>'''
+
+# Write the enhanced HTML file
+with open('index_enhanced.html', 'w', encoding='utf-8') as f:
+    f.write(enhanced_html)
+    
+print("✅ Archivo index_enhanced.html creado con mejoras visuales y de marketing!")
