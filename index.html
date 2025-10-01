@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>La Carta — Restaurantes en Madrid, Sevilla y Don Benito</title>
-  <!-- CSS desde la raíz, SIN ../ porque está en la misma carpeta -->
+  <title>BARGON — Restaurante en Madrid, Sevilla y Don Benito</title>
+  <!-- CSS desde la raíz -->
   <link rel="stylesheet" href="css/style.css">
   <!-- Fuentes mejoradas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- NAVEGACIÓN PRINCIPAL -->
   <header>
     <nav>
-      <div class="logo"><a href="./">🍽️ La Carta</a></div>
+      <!-- Logo BARGON con identidad visual -->
+      <div class="logo"><a href="./">🍴 BARGON</a></div>
       <!-- Enlaces a las tres ubicaciones -->
       <ul class="nav-links">
         <li><a href="./madrid/">🏛️ Madrid</a></li>
@@ -25,95 +26,118 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION PRINCIPAL - Portada general -->
+  <!-- HERO SECTION PRINCIPAL - Identidad BARGON -->
   <section class="hero hero-home" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80');">
     <div class="hero-content hero-home-content">
-      <!-- Título principal de la marca -->
-      <span class="hero-badge">🍽️ Desde 1975</span>
-      <h1 class="hero-title-main">La Carta</h1>
-      <p class="hero-subtitle-main">Tradición culinaria española en tres ciudades</p>
-      <p class="hero-description">Descubre los sabores auténticos de Madrid, Sevilla y Don Benito</p>
+      <!-- Badge exclusivo BARGON -->
+      <span class="hero-badge">🍴 Desde 1975</span>
+      <h1 class="hero-title-main">BARGON</h1>
+      <p class="hero-subtitle-main">La esencia de la gastronomía española</p>
+      <p class="hero-description">Experiencia culinaria única en Madrid, Sevilla y Don Benito</p>
 
       <!-- Botón de llamada a la acción -->
       <div class="hero-cta">
         <a href="#locations" class="btn btn-hero">
-          Descubre Nuestras Ubicaciones
+          Descubre Nuestras Sedes
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN DE VALORES - Por qué elegirnos -->
-  <section class="values-section">
+  <!-- SECCIÓN DE ESENCIA BARGON -->
+  <section class="essence-section">
     <div class="container">
       <div class="section-header">
-        <h2>Por qué La Carta</h2>
-        <p class="section-subtitle">Compromiso con la calidad y la tradición desde hace 50 años</p>
+        <span class="section-badge">✨ Nuestra Esencia</span>
+        <h2>Lo que hace único a BARGON</h2>
       </div>
 
-      <div class="values-grid">
-        <!-- Valor 1: Calidad -->
-        <div class="value-card">
-          <div class="value-icon">🌟</div>
-          <h3>Calidad Premium</h3>
-          <p>Ingredientes frescos y de temporada, seleccionados de productores locales</p>
+      <div class="essence-content">
+        <div class="essence-text">
+          <p>En <strong>BARGON</strong>, cada plato cuenta una historia. Somos más que un restaurante: somos guardianes de tradiciones culinarias centenarias, fusionadas con innovación y pasión por los productos de temporada.</p>
+
+          <p>Nuestra filosofía se basa en tres pilares fundamentales:</p>
+
+          <ul class="essence-list">
+            <li><strong>🌾 Producto Local:</strong> Trabajamos exclusivamente con productores de confianza, garantizando frescura y calidad en cada ingrediente.</li>
+            <li><strong>👨‍🍳 Técnica Artesanal:</strong> Nuestros chefs dominan técnicas tradicionales transmitidas de generación en generación.</li>
+            <li><strong>💫 Experiencia Memorable:</strong> Cada visita a BARGON es un viaje sensorial que combina sabor, ambiente y hospitalidad.</li>
+          </ul>
         </div>
 
-        <!-- Valor 2: Tradición -->
-        <div class="value-card">
-          <div class="value-icon">👨‍🍳</div>
-          <h3>Recetas Tradicionales</h3>
-          <p>Platos auténticos transmitidos de generación en generación</p>
-        </div>
-
-        <!-- Valor 3: Experiencia -->
-        <div class="value-card">
-          <div class="value-icon">⭐</div>
-          <h3>Experiencia Única</h3>
-          <p>Ambiente acogedor donde cada comida es una celebración</p>
+        <div class="essence-image">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80" alt="Chef de BARGON">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN DE UBICACIONES - Las tres sedes -->
+  <!-- SECCIÓN DE VALORES -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Por qué elegir BARGON</h2>
+        <p class="section-subtitle">Compromiso con la excelencia desde hace 50 años</p>
+      </div>
+
+      <div class="values-grid">
+        <!-- Valor 1 -->
+        <div class="value-card">
+          <div class="value-icon">🌟</div>
+          <h3>Calidad Premium</h3>
+          <p>Ingredientes seleccionados y certificados por denominación de origen</p>
+        </div>
+
+        <!-- Valor 2 -->
+        <div class="value-card">
+          <div class="value-icon">👨‍🍳</div>
+          <h3>Maestros Culinarios</h3>
+          <p>Equipo de chefs con formación internacional y raíces locales</p>
+        </div>
+
+        <!-- Valor 3 -->
+        <div class="value-card">
+          <div class="value-icon">⭐</div>
+          <h3>Experiencia 360°</h3>
+          <p>Ambiente acogedor donde cada detalle está pensado para tu disfrute</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE UBICACIONES -->
   <section class="locations-section" id="locations">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">📍 Nuestras Sedes</span>
         <h2>Tres Ciudades, Una Pasión</h2>
-        <p class="section-subtitle">Elige tu destino gastronómico favorito</p>
+        <p class="section-subtitle">Elige tu experiencia BARGON favorita</p>
       </div>
 
       <div class="locations-grid">
         <!-- MADRID -->
         <div class="location-card">
-          <!-- Imagen de la ubicación -->
           <div class="location-image-container">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Madrid">
-            <!-- Badge de popularidad -->
-            <div class="location-badge">🏆 Más visitada</div>
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="BARGON Madrid">
+            <div class="location-badge">🏆 Sede Principal</div>
           </div>
 
           <div class="location-content">
-            <h3>🏛️ Madrid</h3>
+            <h3>🏛️ BARGON Madrid</h3>
             <p class="location-description">Sabores castizos en el corazón de la capital</p>
 
-            <!-- Platos destacados -->
             <div class="location-highlights">
               <span class="highlight">🍲 Cocido Madrileño</span>
-              <span class="highlight">🦑 Bocadillo de Calamares</span>
+              <span class="highlight">🦑 Calamares Premium</span>
             </div>
 
-            <!-- Información de ubicación -->
             <div class="location-info">
               <p>📍 Plaza Mayor</p>
               <p>⭐ 4.8/5 · 1,200+ reseñas</p>
             </div>
 
-            <!-- Botón para visitar -->
             <a href="./madrid/" class="btn btn-location">
-              Ver Menú de Madrid
+              Ver Carta Completa
             </a>
           </div>
         </div>
@@ -121,17 +145,17 @@
         <!-- SEVILLA -->
         <div class="location-card">
           <div class="location-image-container">
-            <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?auto=format&fit=crop&w=800&q=80" alt="Sevilla">
-            <div class="location-badge premium">💎 Premium</div>
+            <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?auto=format&fit=crop&w=800&q=80" alt="BARGON Sevilla">
+            <div class="location-badge premium">💎 Experiencia Premium</div>
           </div>
 
           <div class="location-content">
-            <h3>🌟 Sevilla</h3>
+            <h3>🌟 BARGON Sevilla</h3>
             <p class="location-description">Tradición andaluza con arte flamenco</p>
 
             <div class="location-highlights">
-              <span class="highlight">🍅 Gazpacho Sevillano</span>
-              <span class="highlight">🐷 Jamón Ibérico</span>
+              <span class="highlight">🍅 Gazpacho Artesano</span>
+              <span class="highlight">🐷 Jamón de Bellota</span>
             </div>
 
             <div class="location-info">
@@ -140,7 +164,7 @@
             </div>
 
             <a href="./sevilla/" class="btn btn-location">
-              Ver Menú de Sevilla
+              Ver Carta Completa
             </a>
           </div>
         </div>
@@ -148,17 +172,17 @@
         <!-- DON BENITO -->
         <div class="location-card">
           <div class="location-image-container">
-            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Don Benito">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="BARGON Don Benito">
             <div class="location-badge authentic">🌾 Auténtico</div>
           </div>
 
           <div class="location-content">
-            <h3>⭐ Don Benito</h3>
+            <h3>⭐ BARGON Don Benito</h3>
             <p class="location-description">Esencia extremeña de la tierra</p>
 
             <div class="location-highlights">
-              <span class="highlight">🥖 Migas Extremeñas</span>
-              <span class="highlight">🐏 Caldereta de Cordero</span>
+              <span class="highlight">🥖 Migas Tradicionales</span>
+              <span class="highlight">🐏 Caldereta Casera</span>
             </div>
 
             <div class="location-info">
@@ -167,7 +191,7 @@
             </div>
 
             <a href="./donbenito/" class="btn btn-location">
-              Ver Menú de Don Benito
+              Ver Carta Completa
             </a>
           </div>
         </div>
@@ -175,7 +199,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE ESTADÍSTICAS - Generar confianza -->
+  <!-- ESTADÍSTICAS -->
   <section class="stats-section">
     <div class="container">
       <div class="stats-grid">
@@ -186,7 +210,7 @@
 
         <div class="stat-item">
           <div class="stat-number">3</div>
-          <div class="stat-label">Ciudades</div>
+          <div class="stat-label">Sedes en España</div>
         </div>
 
         <div class="stat-item">
@@ -202,7 +226,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE TESTIMONIOS GENERALES -->
+  <!-- TESTIMONIOS -->
   <section class="testimonials-section">
     <div class="container">
       <div class="section-header">
@@ -213,59 +237,59 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p>"Increíble experiencia en las tres ubicaciones. La calidad es consistente en todas."</p>
+          <p>"BARGON es sinónimo de calidad. Cada visita es una experiencia única."</p>
           <div class="testimonial-author">
             <strong>Laura Martínez</strong>
-            <span>Cliente desde 2018</span>
+            <span>Cliente VIP desde 2018</span>
           </div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p>"Auténtica comida española. Como estar en casa de la abuela."</p>
+          <p>"Auténtica cocina española con toque contemporáneo. ¡Impresionante!"</p>
           <div class="testimonial-author">
             <strong>David López</strong>
+            <span>Crítico gastronómico</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"El mejor lugar para descubrir la verdadera esencia de España."</p>
+          <div class="testimonial-author">
+            <strong>Patricia Sánchez</strong>
             <span>Turista internacional</span>
           </div>
         </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p>"El mejor restaurante para descubrir la gastronomía española. ¡Muy recomendable!"</p>
-          <div class="testimonial-author">
-            <strong>Patricia Sánchez</strong>
-            <span>Crítica gastronómica</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- CALL TO ACTION FINAL - Invitar a reservar -->
+  <!-- CTA FINAL -->
   <section class="final-cta-section">
     <div class="container">
       <div class="final-cta-content">
-        <h2>¿Listo para una experiencia única?</h2>
-        <p>Reserva tu mesa en cualquiera de nuestras ubicaciones</p>
+        <h2>¿Listo para vivir la experiencia BARGON?</h2>
+        <p>Reserva tu mesa o realiza tu pedido online ahora</p>
 
         <div class="cta-buttons">
-          <a href="./madrid/#reservas" class="btn btn-primary">Reservar en Madrid</a>
-          <a href="./sevilla/#reservas" class="btn btn-primary">Reservar en Sevilla</a>
-          <a href="./donbenito/#reservas" class="btn btn-primary">Reservar en Don Benito</a>
+          <a href="./madrid/#pedidos" class="btn btn-primary">🛒 Pedir Online Madrid</a>
+          <a href="./sevilla/#pedidos" class="btn btn-primary">🛒 Pedir Online Sevilla</a>
+          <a href="./donbenito/#pedidos" class="btn btn-primary">🛒 Pedir Online Don Benito</a>
         </div>
 
-        <p class="cta-note">📞 También puedes llamarnos directamente a cualquiera de nuestras sedes</p>
+        <p class="cta-note">📞 O llámanos directamente · 🚗 Recogida en local · 🏠 Delivery disponible</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER PRINCIPAL -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-main">
         <div class="footer-brand">
-          <h3>🍽️ La Carta</h3>
-          <p>Tradición culinaria española desde 1975</p>
+          <h3>🍴 BARGON</h3>
+          <p>La esencia de la gastronomía española desde 1975</p>
         </div>
 
         <div class="footer-locations">
@@ -286,7 +310,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2025 La Carta — Todos los derechos reservados</p>
+        <p>© 2025 BARGON — Todos los derechos reservados</p>
         <div class="footer-social">
           <span>Síguenos:</span>
           <a href="#">📘 Facebook</a>

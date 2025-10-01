@@ -3,239 +3,321 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurante — Madrid | La Carta</title>
-  <!-- Enlace al CSS que está en la carpeta css -->
-  <link rel="stylesheet" href="../css/style.css">
-  <!-- Fuentes de Google para mejor tipografía -->
+  <title>BARGON — Restaurante en Madrid, Sevilla y Don Benito</title>
+  <!-- CSS desde la raíz -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Fuentes mejoradas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- HEADER - Navegación principal -->
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header>
     <nav>
-      <!-- Logo con emoji para mayor impacto visual -->
-      <div class="logo"><a href="../">🍽️ La Carta</a></div>
-      <!-- Enlaces de navegación con iconos -->
+      <!-- Logo BARGON con identidad visual -->
+      <div class="logo"><a href="./">🍴 BARGON</a></div>
+      <!-- Enlaces a las tres ubicaciones -->
       <ul class="nav-links">
-        <li><a href="../">🏠 Inicio</a></li>
-        <li><a href="../sevilla/">🌟 Sevilla</a></li>
-        <li><a href="../donbenito/">⭐ Don Benito</a></li>
+        <li><a href="./madrid/">🏛️ Madrid</a></li>
+        <li><a href="./sevilla/">🌟 Sevilla</a></li>
+        <li><a href="./donbenito/">⭐ Don Benito</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO SECTION - Sección principal con imagen de fondo -->
-  <section class="hero hero-madrid" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
-    <div class="hero-content">
-      <!-- Badge distintivo para crear exclusividad -->
-      <span class="hero-badge">✨ Auténticos Sabores</span>
-      <h1 class="hero-title">Madrid Gastronómico</h1>
-      <p class="hero-subtitle">Tradición culinaria en el corazón de la capital</p>
-      <!-- Estadísticas para generar confianza -->
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">50+</span>
-          <span class="stat-label">Años de tradición</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">4.8★</span>
-          <span class="stat-label">Valoración</span>
-        </div>
+  <!-- HERO SECTION PRINCIPAL - Identidad BARGON -->
+  <section class="hero hero-home" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80');">
+    <div class="hero-content hero-home-content">
+      <!-- Badge exclusivo BARGON -->
+      <span class="hero-badge">🍴 Desde 1975</span>
+      <h1 class="hero-title-main">BARGON</h1>
+      <p class="hero-subtitle-main">La esencia de la gastronomía española</p>
+      <p class="hero-description">Experiencia culinaria única en Madrid, Sevilla y Don Benito</p>
+
+      <!-- Botón de llamada a la acción -->
+      <div class="hero-cta">
+        <a href="#locations" class="btn btn-hero">
+          Descubre Nuestras Sedes
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BANNER PROMOCIONAL - Crear urgencia y ofertas especiales -->
-  <section class="promo-banner">
+  <!-- SECCIÓN DE ESENCIA BARGON -->
+  <section class="essence-section">
     <div class="container">
-      <div class="promo-content">
-        <span class="promo-icon">🎉</span>
-        <div class="promo-text">
-          <strong>¡Oferta Especial!</strong> Menú completo por solo 15€ - Lunes a Viernes
+      <div class="section-header">
+        <span class="section-badge">✨ Nuestra Esencia</span>
+        <h2>Lo que hace único a BARGON</h2>
+      </div>
+
+      <div class="essence-content">
+        <div class="essence-text">
+          <p>En <strong>BARGON</strong>, cada plato cuenta una historia. Somos más que un restaurante: somos guardianes de tradiciones culinarias centenarias, fusionadas con innovación y pasión por los productos de temporada.</p>
+
+          <p>Nuestra filosofía se basa en tres pilares fundamentales:</p>
+
+          <ul class="essence-list">
+            <li><strong>🌾 Producto Local:</strong> Trabajamos exclusivamente con productores de confianza, garantizando frescura y calidad en cada ingrediente.</li>
+            <li><strong>👨‍🍳 Técnica Artesanal:</strong> Nuestros chefs dominan técnicas tradicionales transmitidas de generación en generación.</li>
+            <li><strong>💫 Experiencia Memorable:</strong> Cada visita a BARGON es un viaje sensorial que combina sabor, ambiente y hospitalidad.</li>
+          </ul>
         </div>
-        <a href="#reservas" class="promo-cta">Reservar Ahora</a>
+
+        <div class="essence-image">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80" alt="Chef de BARGON">
+        </div>
       </div>
     </div>
   </section>
 
-  <main class="container">
-    <!-- SECCIÓN DEL MENÚ - Productos organizados visualmente -->
-    <section class="menu-section">
+  <!-- SECCIÓN DE VALORES -->
+  <section class="values-section">
+    <div class="container">
       <div class="section-header">
-        <span class="section-badge">🍽️ Nuestro Menú</span>
-        <h2>Especialidades de Madrid</h2>
-        <p class="section-subtitle">Platos tradicionales preparados con ingredientes frescos y recetas auténticas</p>
+        <h2>Por qué elegir BARGON</h2>
+        <p class="section-subtitle">Compromiso con la excelencia desde hace 50 años</p>
       </div>
 
-      <!-- Grid de platos con elementos de marketing -->
-      <div class="menu-grid">
-        <!-- Plato destacado - Cocido Madrileño -->
-        <div class="card featured-card">
-          <div class="card-badge">🏆 Más Popular</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido madrileño">
-            <!-- Overlay con información adicional -->
-            <div class="image-overlay">
-              <span class="overlay-text">👨‍🍳 Receta tradicional</span>
-            </div>
+      <div class="values-grid">
+        <!-- Valor 1 -->
+        <div class="value-card">
+          <div class="value-icon">🌟</div>
+          <h3>Calidad Premium</h3>
+          <p>Ingredientes seleccionados y certificados por denominación de origen</p>
+        </div>
+
+        <!-- Valor 2 -->
+        <div class="value-card">
+          <div class="value-icon">👨‍🍳</div>
+          <h3>Maestros Culinarios</h3>
+          <p>Equipo de chefs con formación internacional y raíces locales</p>
+        </div>
+
+        <!-- Valor 3 -->
+        <div class="value-card">
+          <div class="value-icon">⭐</div>
+          <h3>Experiencia 360°</h3>
+          <p>Ambiente acogedor donde cada detalle está pensado para tu disfrute</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE UBICACIONES -->
+  <section class="locations-section" id="locations">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">📍 Nuestras Sedes</span>
+        <h2>Tres Ciudades, Una Pasión</h2>
+        <p class="section-subtitle">Elige tu experiencia BARGON favorita</p>
+      </div>
+
+      <div class="locations-grid">
+        <!-- MADRID -->
+        <div class="location-card">
+          <div class="location-image-container">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="BARGON Madrid">
+            <div class="location-badge">🏆 Sede Principal</div>
           </div>
-          <div class="card-content">
-            <h3>Cocido Madrileño</h3>
-            <p>Sopa, garbanzos y carne — receta familiar de tres generaciones</p>
-            <!-- Características del plato -->
-            <div class="card-features">
-              <span class="feature">🌱 Ingredientes locales</span>
-              <span class="feature">⏱️ 45 min cocción lenta</span>
+
+          <div class="location-content">
+            <h3>🏛️ BARGON Madrid</h3>
+            <p class="location-description">Sabores castizos en el corazón de la capital</p>
+
+            <div class="location-highlights">
+              <span class="highlight">🍲 Cocido Madrileño</span>
+              <span class="highlight">🦑 Calamares Premium</span>
             </div>
-            <!-- Precios con descuento para crear urgencia -->
-            <div class="price-container">
-              <span class="price-old">15€</span>
-              <span class="price">12€</span>
-              <span class="savings">¡Ahorra 3€!</span>
+
+            <div class="location-info">
+              <p>📍 Plaza Mayor</p>
+              <p>⭐ 4.8/5 · 1,200+ reseñas</p>
             </div>
+
+            <a href="./madrid/" class="btn btn-location">
+              Ver Carta Completa
+            </a>
           </div>
         </div>
 
-        <!-- Bocadillo de Calamares con badge trending -->
-        <div class="card">
-          <div class="card-badge trending">🔥 Trending</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Bocadillo de calamares">
-            <div class="image-overlay">
-              <span class="overlay-text">📍 Estilo Plaza Mayor</span>
-            </div>
+        <!-- SEVILLA -->
+        <div class="location-card">
+          <div class="location-image-container">
+            <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?auto=format&fit=crop&w=800&q=80" alt="BARGON Sevilla">
+            <div class="location-badge premium">💎 Experiencia Premium</div>
           </div>
-          <div class="card-content">
-            <h3>Bocadillo de Calamares</h3>
-            <p>Crocante y en pan artesano, el clásico favorito de Madrid</p>
-            <div class="card-features">
-              <span class="feature">🦑 Calamares frescos</span>
-              <span class="feature">🥖 Pan artesano</span>
+
+          <div class="location-content">
+            <h3>🌟 BARGON Sevilla</h3>
+            <p class="location-description">Tradición andaluza con arte flamenco</p>
+
+            <div class="location-highlights">
+              <span class="highlight">🍅 Gazpacho Artesano</span>
+              <span class="highlight">🐷 Jamón de Bellota</span>
             </div>
-            <div class="price-container">
-              <span class="price">5€</span>
+
+            <div class="location-info">
+              <p>📍 Barrio de Santa Cruz</p>
+              <p>⭐ 4.9/5 · 850+ reseñas</p>
             </div>
+
+            <a href="./sevilla/" class="btn btn-location">
+              Ver Carta Completa
+            </a>
+          </div>
+        </div>
+
+        <!-- DON BENITO -->
+        <div class="location-card">
+          <div class="location-image-container">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="BARGON Don Benito">
+            <div class="location-badge authentic">🌾 Auténtico</div>
+          </div>
+
+          <div class="location-content">
+            <h3>⭐ BARGON Don Benito</h3>
+            <p class="location-description">Esencia extremeña de la tierra</p>
+
+            <div class="location-highlights">
+              <span class="highlight">🥖 Migas Tradicionales</span>
+              <span class="highlight">🐏 Caldereta Casera</span>
+            </div>
+
+            <div class="location-info">
+              <p>📍 Plaza de España</p>
+              <p>⭐ 4.9/5 · 620+ reseñas</p>
+            </div>
+
+            <a href="./donbenito/" class="btn btn-location">
+              Ver Carta Completa
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECCIÓN DE TESTIMONIOS - Prueba social -->
-    <section class="reviews-section">
+  <!-- ESTADÍSTICAS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Sedes en España</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">25K+</div>
+          <div class="stat-label">Clientes satisfechos</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Valoración media</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials-section">
+    <div class="container">
       <div class="section-header">
-        <span class="section-badge">⭐ Testimonios</span>
+        <span class="section-badge">💬 Testimonios</span>
         <h2>Lo que dicen nuestros clientes</h2>
       </div>
 
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p>"El mejor cocido de Madrid. Ambiente familiar y auténtico."</p>
-          <div class="reviewer">
-            <strong>María González</strong>
-            <span>Cliente habitual</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"BARGON es sinónimo de calidad. Cada visita es una experiencia única."</p>
+          <div class="testimonial-author">
+            <strong>Laura Martínez</strong>
+            <span>Cliente VIP desde 2018</span>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p>"Los calamares están increíbles, volveré sin duda."</p>
-          <div class="reviewer">
-            <strong>Carlos Ruiz</strong>
-            <span>Turista</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
-    <section class="location-section">
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">📍</div>
-          <h3>Ubicación</h3>
-          <p><strong>Plaza Mayor, Madrid</strong><br>
-          Centro histórico de la ciudad<br>
-          Metro: Sol (L1, L2, L3)</p>
-          <div class="location-features">
-            <span class="feature">🅿️ Parking cercano</span>
-            <span class="feature">♿ Accesible</span>
-            <span class="feature">🚇 Metro a 2 min</span>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Auténtica cocina española con toque contemporáneo. ¡Impresionante!"</p>
+          <div class="testimonial-author">
+            <strong>David López</strong>
+            <span>Crítico gastronómico</span>
           </div>
         </div>
 
-        <div class="info-card">
-          <div class="info-icon">🕐</div>
-          <h3>Horarios</h3>
-          <div class="schedule">
-            <div class="schedule-item">
-              <span><strong>Lunes - Viernes:</strong></span>
-              <span>12:00 - 16:00 | 19:00 - 23:00</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Sábados:</strong></span>
-              <span>12:00 - 23:00</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Domingos:</strong></span>
-              <span>12:00 - 17:00</span>
-            </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"El mejor lugar para descubrir la verdadera esencia de España."</p>
+          <div class="testimonial-author">
+            <strong>Patricia Sánchez</strong>
+            <span>Turista internacional</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECCIÓN DE RESERVAS - CTA principal -->
-    <section class="reservations-section" id="reservas">
-      <div class="reservation-container">
-        <div class="reservation-content">
-          <div class="reservation-icon">📱</div>
-          <h3>Reserva tu Mesa</h3>
-          <p>¡No te quedes sin probar nuestras especialidades! Reserva ahora y disfruta de una experiencia gastronómica única.</p>
+  <!-- CTA FINAL -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-content">
+        <h2>¿Listo para vivir la experiencia BARGON?</h2>
+        <p>Reserva tu mesa o realiza tu pedido online ahora</p>
 
-          <!-- Beneficios de reservar online -->
-          <div class="reservation-benefits">
-            <div class="benefit">
-              <span class="benefit-icon">⚡</span>
-              <span>Confirmación inmediata</span>
-            </div>
-            <div class="benefit">
-              <span class="benefit-icon">🎁</span>
-              <span>Descuento especial online</span>
-            </div>
-            <div class="benefit">
-              <span class="benefit-icon">📞</span>
-              <span>Atención personalizada</span>
-            </div>
-          </div>
-
-          <!-- Botón principal de WhatsApp -->
-          <a class="btn btn-primary" href="https://wa.me/+34634056627?text=Hola%20quiero%20hacer%20una%20reserva%20en%20Madrid%20el%20día%20__%20a%20las%20__" target="_blank">
-            <span class="btn-icon">💬</span>
-            Reservar por WhatsApp
-          </a>
-
-          <!-- Alternativas de contacto -->
-          <div class="contact-alternatives">
-            <p>También puedes llamarnos:</p>
-            <a href="tel:+34634056627" class="phone-link">📞 +34 634 056 627</a>
-          </div>
+        <div class="cta-buttons">
+          <a href="./madrid/#pedidos" class="btn btn-primary">🛒 Pedir Online Madrid</a>
+          <a href="./sevilla/#pedidos" class="btn btn-primary">🛒 Pedir Online Sevilla</a>
+          <a href="./donbenito/#pedidos" class="btn btn-primary">🛒 Pedir Online Don Benito</a>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- FOOTER - Información adicional y redes sociales -->
+        <p class="cta-note">📞 O llámanos directamente · 🚗 Recogida en local · 🏠 Delivery disponible</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
-      <p>© 2025 La Carta — Tradición culinaria madrileña</p>
-      <div class="footer-social">
-        <span>Síguenos:</span>
-        <a href="#">📘 Facebook</a>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🐦 Twitter</a>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>🍴 BARGON</h3>
+          <p>La esencia de la gastronomía española desde 1975</p>
+        </div>
+
+        <div class="footer-locations">
+          <h4>Nuestras Sedes</h4>
+          <ul>
+            <li><a href="./madrid/">Madrid - Plaza Mayor</a></li>
+            <li><a href="./sevilla/">Sevilla - Barrio Santa Cruz</a></li>
+            <li><a href="./donbenito/">Don Benito - Plaza de España</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>Madrid: +34 634 056 627</p>
+          <p>Sevilla: +34 954 123 456</p>
+          <p>Don Benito: +34 924 123 789</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 BARGON — Todos los derechos reservados</p>
+        <div class="footer-social">
+          <span>Síguenos:</span>
+          <a href="#">📘 Facebook</a>
+          <a href="#">📷 Instagram</a>
+          <a href="#">🐦 Twitter</a>
+          <a href="#">📺 YouTube</a>
+        </div>
       </div>
     </div>
   </footer>
