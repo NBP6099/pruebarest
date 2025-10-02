@@ -182,16 +182,11 @@
             </div>
 
             <div class="form-group">
-              <label>Hora preferida</label>
-              <input type="time" id="delivery-time">
-            </div>
-
-            <div class="form-group">
               <label>Comentarios</label>
               <textarea id="order-notes" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-send-order">
+            <button type="submit" class="btn btn-primary btn-send-order" id="submit-btn">
               📱 Enviar Pedido
             </button>
           </form>
@@ -211,26 +206,37 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
   <script>
-    // ⚠️ IMPORTANTE: REEMPLAZA CON TU CONFIGURACIÓN DE FIREBASE
     const firebaseConfig = {
-  apiKey: "AIzaSyDjbJFgGeioAxBAf3wh9z_Q4M-CB7klx1Y",
-  authDomain: "gonbar-8cd74.firebaseapp.com",
-  databaseURL: "https://gonbar-8cd74-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "gonbar-8cd74",
-  storageBucket: "gonbar-8cd74.firebasestorage.app",
-  messagingSenderId: "865095320231",
-  appId: "1:865095320231:web:d6598f1ddfd93672c39182",
-  measurementId: "G-M6ZNWVBQ88"
-};
+      apiKey: "AIzaSyDjbJFgGeioAxBAf3wh9zQ4M-CB7klx1Y",
+      authDomain: "gonbar-8cd74.firebaseapp.com",
+      databaseURL: "https://gonbar-8cd74-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gonbar-8cd74",
+      storageBucket: "gonbar-8cd74.firebasestorage.app",
+      messagingSenderId: "865095320231",
+      appId: "1:865095320231:web:d6598f1ddfd93672c39182",
+      measurementId: "G-M6ZNWVBQ88"
+    };
 
-    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
 
     let cart = [];
     let orderNumber = Date.now();
+    let isSubmitting = false; // PREVENIR DUPLICADOS
+    let lastClickTime = {}; // DEBOUNCE POR PRODUCTO
 
+    // ✅ MEJORADO: Añadir con DEBOUNCE (500ms entre clicks)
     function addToOrder(name, price, id) {
+      const now = Date.now();
+      const timeSinceLastClick = lastClickTime[id] ? now - lastClickTime[id] : 1000;
+
+      // Si pasaron menos de 500ms, ignorar
+      if (timeSinceLastClick < 500) {
+        return;
+      }
+
+      lastClickTime[id] = now;
+
       const existingItem = cart.find(item => item.id === id);
 
       if (existingItem) {
@@ -319,9 +325,14 @@
       }
     });
 
-    // ENVIAR PEDIDO A FIREBASE
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
+    // ✅ MEJORADO: Enviar con CONFIRMACIÓN y PREVENIR DUPLICADOS
+    document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+
+      // Prevenir envíos duplicados
+      if (isSubmitting) {
+        return;
+      }
 
       if (cart.length === 0) {
         alert('❌ Tu carrito está vacío');
@@ -333,12 +344,25 @@
       const serviceType = document.getElementById('service-type').value;
       const deliveryAddress = document.getElementById('delivery-address').value;
       const tableNumber = document.getElementById('table-number').value;
-      const deliveryTime = document.getElementById('delivery-time').value;
       const notes = document.getElementById('order-notes').value;
 
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
+
+      // ✅ CONFIRMACIÓN antes de enviar
+      const itemsList = cart.map(item => `• ${item.quantity}x ${item.name} (${(item.price * item.quantity).toFixed(2)}€)`).join('\n');
+      const confirmMessage = `¿Confirmar pedido?\n\n${itemsList}\n\n💰 Total: ${total.toFixed(2)}€`;
+
+      if (!confirm(confirmMessage)) {
+        return;
+      }
+
+      // Bloquear botón
+      isSubmitting = true;
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Enviando...';
 
       const orderData = {
         orderNumber: orderNumber++,
@@ -349,7 +373,7 @@
         serviceType,
         deliveryAddress: serviceType === 'delivery' ? deliveryAddress : null,
         tableNumber: serviceType === 'table' ? tableNumber : null,
-        deliveryTime,
+        deliveryTime: 'Inmediato', // ✅ SIEMPRE INMEDIATO
         notes,
         items: cart,
         subtotal,
@@ -358,18 +382,23 @@
         location: 'Madrid'
       };
 
-      // ENVIAR A FIREBASE (NO WHATSAPP)
-      database.ref('orders').push(orderData)
-        .then(() => {
-          alert('✅ ¡Pedido enviado! El restaurante lo recibirá en el panel de administración.');
-          cart = [];
-          updateCart();
-          document.getElementById('orderForm').reset();
-        })
-        .catch((error) => {
-          alert('❌ Error al enviar el pedido. Verifica tu conexión.');
-          console.error(error);
-        });
+      try {
+        await database.ref('orders').push(orderData);
+        alert('✅ ¡Pedido enviado correctamente!');
+        cart = [];
+        updateCart();
+        this.reset();
+      } catch (error) {
+        alert('❌ Error al enviar el pedido. Inténtalo de nuevo.');
+        console.error(error);
+      } finally {
+        // Desbloquear botón después de 2 segundos
+        setTimeout(() => {
+          isSubmitting = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = '📱 Enviar Pedido';
+        }, 2000);
+      }
     });
 
     function showNotification(message) {
