@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>BARGON Madrid | Restaurante en Plaza Mayor</title>
-  <!-- CSS desde carpeta madrid -->
+  <title>BARGON Madrid | Sistema de Pedidos</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- NAVEGACIÓN -->
@@ -23,22 +22,12 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
     <div class="hero-content">
       <span class="hero-badge">✨ BARGON Madrid</span>
       <h1 class="hero-title">Sabores de la Capital</h1>
-      <p class="hero-subtitle">Tradición madrileña con toque contemporáneo</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">50+</span>
-          <span class="stat-label">Años aquí</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">4.8★</span>
-          <span class="stat-label">Valoración</span>
-        </div>
-      </div>
+      <p class="hero-subtitle">Pedidos online con entrega inmediata</p>
     </div>
   </section>
 
@@ -48,7 +37,7 @@
       <div class="promo-content">
         <span class="promo-icon">🎉</span>
         <div class="promo-text">
-          <strong>¡Pide Online!</strong> 15% descuento en tu primer pedido con código BARGON15
+          <strong>¡Pide Online!</strong> Sistema profesional de pedidos
         </div>
         <a href="#pedidos" class="promo-cta">Pedir Ahora</a>
       </div>
@@ -61,93 +50,64 @@
       <div class="section-header">
         <span class="section-badge">⭐ Recomendaciones del Chef</span>
         <h2>Lo Mejor de BARGON Madrid</h2>
-        <p class="section-subtitle">Nuestros platos más solicitados, seleccionados por el chef ejecutivo</p>
       </div>
 
       <div class="recommendations-grid">
-        <!-- Recomendación 1 -->
+        <!-- COCIDO MADRILEÑO -->
         <div class="recommendation-card special">
           <div class="recommendation-badge">👨‍🍳 Chef's Choice</div>
           <div class="recommendation-image">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido Madrileño">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido">
           </div>
           <div class="recommendation-content">
-            <h3>🏆 Cocido Madrileño de la Abuela</h3>
-            <p class="recommendation-description">Nuestro plato estrella. Receta tradicional de tres vuelcos con garbanzos selectos, carnes premium y verduras de temporada.</p>
-            <div class="recommendation-chef-note">
-              <em>"El cocido perfecto requiere 6 horas de cocción lenta. Es nuestra seña de identidad."</em>
-              <strong>— Chef Miguel Ángel</strong>
-            </div>
-            <div class="recommendation-details">
-              <span class="detail">🌱 Ingredientes locales</span>
-              <span class="detail">⏱️ 6h de cocción</span>
-              <span class="detail">👥 2-4 personas</span>
-            </div>
+            <h3>🏆 Cocido Madrileño</h3>
+            <p class="recommendation-description">Receta tradicional de tres vuelcos con garbanzos selectos.</p>
             <div class="recommendation-footer">
               <div class="price-info">
                 <span class="price-large">12€</span>
-                <span class="price-desc">por persona</span>
               </div>
               <button class="btn-add-to-order" onclick="addToOrder('Cocido Madrileño', 12, 'madrid-001')">
-                🛒 Añadir al Pedido
+                🛒 Añadir
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Recomendación 2 -->
+        <!-- CALAMARES -->
         <div class="recommendation-card">
           <div class="recommendation-badge trending">🔥 Trending</div>
           <div class="recommendation-image">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Bocadillo de Calamares">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Calamares">
           </div>
           <div class="recommendation-content">
-            <h3>🦑 Bocadillo de Calamares Premium</h3>
-            <p class="recommendation-description">El clásico de Plaza Mayor elevado. Calamares frescos del día, rebozado crujiente y pan artesano.</p>
-            <div class="recommendation-chef-note">
-              <em>"Calamares recién llegados cada mañana. Frescura garantizada."</em>
-              <strong>— Chef Miguel Ángel</strong>
-            </div>
-            <div class="recommendation-details">
-              <span class="detail">🦑 Calamares frescos</span>
-              <span class="detail">🥖 Pan artesano</span>
-              <span class="detail">⚡ Listo en 10 min</span>
-            </div>
+            <h3>🦑 Bocadillo de Calamares</h3>
+            <p class="recommendation-description">Calamares frescos del día, rebozado crujiente.</p>
             <div class="recommendation-footer">
               <div class="price-info">
                 <span class="price-large">7€</span>
               </div>
-              <button class="btn-add-to-order" onclick="addToOrder('Bocadillo Calamares Premium', 7, 'madrid-002')">
-                🛒 Añadir al Pedido
+              <button class="btn-add-to-order" onclick="addToOrder('Bocadillo Calamares', 7, 'madrid-002')">
+                🛒 Añadir
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Recomendación 3 -->
+        <!-- TORTILLA -->
         <div class="recommendation-card">
-          <div class="recommendation-badge seasonal">🌟 Temporada</div>
+          <div class="recommendation-badge seasonal">🌟 Especial</div>
           <div class="recommendation-image">
-            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80" alt="Tortilla de Patatas">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80" alt="Tortilla">
           </div>
           <div class="recommendation-content">
-            <h3>🥚 Tortilla Española Jugosa</h3>
-            <p class="recommendation-description">La tortilla más cremosa de Madrid. Patatas gallegas y huevos de corral en su punto perfecto.</p>
-            <div class="recommendation-chef-note">
-              <em>"El secreto está en la temperatura y el tiempo. Jugosa por fuera, cremosa por dentro."</em>
-              <strong>— Chef Miguel Ángel</strong>
-            </div>
-            <div class="recommendation-details">
-              <span class="detail">🥔 Patatas gallegas</span>
-              <span class="detail">🥚 Huevos de corral</span>
-              <span class="detail">🔥 Hecha al momento</span>
-            </div>
+            <h3>🥚 Tortilla Española</h3>
+            <p class="recommendation-description">La tortilla más cremosa de Madrid.</p>
             <div class="recommendation-footer">
               <div class="price-info">
                 <span class="price-large">8€</span>
               </div>
-              <button class="btn-add-to-order" onclick="addToOrder('Tortilla Española Jugosa', 8, 'madrid-003')">
-                🛒 Añadir al Pedido
+              <button class="btn-add-to-order" onclick="addToOrder('Tortilla Española', 8, 'madrid-003')">
+                🛒 Añadir
               </button>
             </div>
           </div>
@@ -156,93 +116,66 @@
     </section>
 
     <!-- CARTA COMPLETA -->
-    <section class="menu-section" id="carta">
+    <section class="menu-section">
       <div class="section-header">
         <span class="section-badge">📋 Carta Completa</span>
         <h2>Todos Nuestros Platos</h2>
-        <p class="section-subtitle">Explora nuestra selección completa de especialidades madrileñas</p>
       </div>
 
       <div class="menu-grid">
-        <!-- Resto de platos con botón de pedido -->
         <div class="card">
           <div class="card-badge">🥗 Entrante</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Ensalada">
-          </div>
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Ensalada">
           <div class="card-content">
-            <h3>Ensalada Mixta de Temporada</h3>
-            <p>Lechugas variadas, tomate, cebolla, atún y aceite de oliva virgen extra</p>
-            <div class="card-features">
-              <span class="feature">🥬 Verduras frescas</span>
-              <span class="feature">🫒 AOVE</span>
-            </div>
+            <h3>Ensalada Mixta</h3>
+            <p>Verduras frescas con atún y aceite virgen</p>
             <div class="price-container">
               <span class="price">6€</span>
-              <button class="btn-quick-add" onclick="addToOrder('Ensalada Mixta', 6, 'madrid-004')">
-                + Añadir
-              </button>
+              <button class="btn-quick-add" onclick="addToOrder('Ensalada Mixta', 6, 'madrid-004')">+ Añadir</button>
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-badge">🍖 Principal</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80" alt="Chuletón">
-          </div>
+          <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80" alt="Chuletón">
           <div class="card-content">
-            <h3>Chuletón de Ávila a la Brasa</h3>
-            <p>Carne premium con guarnición de patatas panaderas</p>
-            <div class="card-features">
-              <span class="feature">🥩 1kg aprox</span>
-              <span class="feature">🔥 A la brasa</span>
-            </div>
+            <h3>Chuletón de Ávila</h3>
+            <p>Carne premium a la brasa con patatas</p>
             <div class="price-container">
               <span class="price">32€</span>
-              <button class="btn-quick-add" onclick="addToOrder('Chuletón Ávila', 32, 'madrid-005')">
-                + Añadir
-              </button>
+              <button class="btn-quick-add" onclick="addToOrder('Chuletón Ávila', 32, 'madrid-005')">+ Añadir</button>
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-badge">🍰 Postre</div>
-          <div class="card-image-container">
-            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80" alt="Tarta de queso">
-          </div>
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80" alt="Tarta">
           <div class="card-content">
-            <h3>Tarta de Queso Casera</h3>
-            <p>Nuestra receta secreta, cremosa y con base de galleta</p>
-            <div class="card-features">
-              <span class="feature">🧀 Queso fresco</span>
-              <span class="feature">🍪 Base crujiente</span>
-            </div>
+            <h3>Tarta de Queso</h3>
+            <p>Receta secreta, cremosa con base crujiente</p>
             <div class="price-container">
               <span class="price">5€</span>
-              <button class="btn-quick-add" onclick="addToOrder('Tarta de Queso', 5, 'madrid-006')">
-                + Añadir
-              </button>
+              <button class="btn-quick-add" onclick="addToOrder('Tarta de Queso', 5, 'madrid-006')">+ Añadir</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN DE PEDIDOS ONLINE -->
+    <!-- SECCIÓN DE PEDIDOS -->
     <section class="order-section" id="pedidos">
       <div class="section-header">
         <span class="section-badge">🛒 Tu Pedido</span>
-        <h2>Resumen y Envío</h2>
+        <h2>Finalizar Compra</h2>
       </div>
 
       <div class="order-container">
-        <!-- Carrito de pedidos -->
         <div class="order-cart">
-          <h3>🛒 Carrito de Compra</h3>
+          <h3>🛒 Carrito</h3>
           <div id="order-items" class="order-items">
-            <p class="empty-cart">Tu carrito está vacío. ¡Añade platos de nuestra carta!</p>
+            <p class="empty-cart">Tu carrito está vacío</p>
           </div>
 
           <div class="order-summary">
@@ -251,7 +184,7 @@
               <span id="subtotal">0.00€</span>
             </div>
             <div class="summary-line">
-              <span>Descuento (BARGON15):</span>
+              <span>Descuento (15%):</span>
               <span id="discount" class="discount-amount">-0.00€</span>
             </div>
             <div class="summary-line total">
@@ -261,18 +194,17 @@
           </div>
         </div>
 
-        <!-- Formulario de envío -->
         <div class="order-form">
           <h3>📦 Datos de Entrega</h3>
           <form id="orderForm">
             <div class="form-group">
               <label>Nombre completo *</label>
-              <input type="text" id="customer-name" required placeholder="Juan Pérez">
+              <input type="text" id="customer-name" required>
             </div>
 
             <div class="form-group">
               <label>Teléfono *</label>
-              <input type="tel" id="customer-phone" required placeholder="+34 600 000 000">
+              <input type="tel" id="customer-phone" required>
             </div>
 
             <div class="form-group">
@@ -280,29 +212,29 @@
               <select id="service-type" required>
                 <option value="">Selecciona...</option>
                 <option value="delivery">🏠 Entrega a domicilio (+3€)</option>
-                <option value="pickup">🏃 Recogida en local (Gratis)</option>
-                <option value="table">🍽️ Comer en el restaurante</option>
+                <option value="pickup">🏃 Recogida en local</option>
+                <option value="table">🍽️ Comer en restaurante</option>
               </select>
             </div>
 
             <div class="form-group" id="address-group" style="display:none;">
               <label>Dirección de entrega *</label>
-              <input type="text" id="delivery-address" placeholder="Calle, número, piso">
+              <input type="text" id="delivery-address">
             </div>
 
             <div class="form-group" id="table-group" style="display:none;">
               <label>Número de mesa</label>
-              <input type="text" id="table-number" placeholder="Ej: Mesa 5">
+              <input type="text" id="table-number">
             </div>
 
             <div class="form-group">
-              <label>Hora de entrega/recogida</label>
+              <label>Hora preferida</label>
               <input type="time" id="delivery-time">
             </div>
 
             <div class="form-group">
-              <label>Comentarios adicionales</label>
-              <textarea id="order-notes" rows="3" placeholder="Alergias, preferencias, etc."></textarea>
+              <label>Comentarios</label>
+              <textarea id="order-notes" rows="3"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-send-order">
@@ -312,83 +244,53 @@
         </div>
       </div>
     </section>
-
-    <!-- Secciones existentes: Ubicación, Horarios, etc. -->
-    <section class="location-section">
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">📍</div>
-          <h3>Ubicación</h3>
-          <p><strong>Plaza Mayor, Madrid</strong><br>
-          Centro histórico<br>
-          Metro: Sol (L1, L2, L3)</p>
-          <div class="location-features">
-            <span class="feature">🅿️ Parking cercano</span>
-            <span class="feature">♿ Accesible</span>
-            <span class="feature">🚇 Metro 2 min</span>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">🕐</div>
-          <h3>Horarios</h3>
-          <div class="schedule">
-            <div class="schedule-item">
-              <span><strong>Lunes - Viernes:</strong></span>
-              <span>12:00 - 16:00 | 19:00 - 23:00</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Sábados:</strong></span>
-              <span>12:00 - 23:00</span>
-            </div>
-            <div class="schedule-item">
-              <span><strong>Domingos:</strong></span>
-              <span>12:00 - 17:00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="footer-content">
       <p>© 2025 BARGON Madrid — Plaza Mayor</p>
-      <div class="footer-social">
-        <span>Síguenos:</span>
-        <a href="#">📘 Facebook</a>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🐦 Twitter</a>
-      </div>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT PARA EL SISTEMA DE PEDIDOS -->
-  <script>
-    // Sistema de carrito de compras
-    let cart = [];
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
-    // Función para añadir productos al carrito
+  <script>
+    // ⚠️ IMPORTANTE: REEMPLAZA ESTO CON TU CONFIGURACIÓN DE FIREBASE
+    const firebaseConfig = {
+  apiKey: "AIzaSyDjbJFgGeioAxBAf3wh9z_Q4M-CB7klx1Y",
+  authDomain: "gonbar-8cd74.firebaseapp.com",
+  databaseURL: "https://gonbar-8cd74-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "gonbar-8cd74",
+  storageBucket: "gonbar-8cd74.firebasestorage.app",
+  messagingSenderId: "865095320231",
+  appId: "1:865095320231:web:d6598f1ddfd93672c39182",
+  measurementId: "G-M6ZNWVBQ88"
+};
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    let cart = [];
+    let orderNumber = Date.now();
+
+    // Añadir al carrito
     function addToOrder(name, price, id) {
-      // Verificar si el producto ya existe
       const existingItem = cart.find(item => item.id === id);
 
       if (existingItem) {
         existingItem.quantity++;
       } else {
-        cart.push({
-          id: id,
-          name: name,
-          price: price,
-          quantity: 1
-        });
+        cart.push({ id, name, price, quantity: 1 });
       }
 
       updateCart();
-      showNotification(`✓ ${name} añadido al carrito`);
+      showNotification(`✓ ${name} añadido`);
     }
 
-    // Actualizar visualización del carrito
+    // Actualizar carrito
     function updateCart() {
       const orderItems = document.getElementById('order-items');
       const subtotalEl = document.getElementById('subtotal');
@@ -396,7 +298,7 @@
       const totalEl = document.getElementById('total');
 
       if (cart.length === 0) {
-        orderItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío. ¡Añade platos de nuestra carta!</p>';
+        orderItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío</p>';
         subtotalEl.textContent = '0.00€';
         discountEl.textContent = '-0.00€';
         totalEl.innerHTML = '<strong>0.00€</strong>';
@@ -430,7 +332,6 @@
 
       orderItems.innerHTML = html;
 
-      // Calcular descuento 15%
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
 
@@ -439,7 +340,6 @@
       totalEl.innerHTML = `<strong>${total.toFixed(2)}€</strong>`;
     }
 
-    // Cambiar cantidad
     function changeQuantity(index, delta) {
       cart[index].quantity += delta;
       if (cart[index].quantity <= 0) {
@@ -448,22 +348,9 @@
       updateCart();
     }
 
-    // Eliminar item
     function removeItem(index) {
       cart.splice(index, 1);
       updateCart();
-    }
-
-    // Mostrar notificación
-    function showNotification(message) {
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      notification.textContent = message;
-      document.body.appendChild(notification);
-
-      setTimeout(() => {
-        notification.remove();
-      }, 3000);
     }
 
     // Manejar tipo de servicio
@@ -481,16 +368,15 @@
       }
     });
 
-    // Enviar pedido
+    // ENVIAR PEDIDO A FIREBASE
     document.getElementById('orderForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       if (cart.length === 0) {
-        alert('❌ Tu carrito está vacío. Añade platos antes de enviar el pedido.');
+        alert('❌ Tu carrito está vacío');
         return;
       }
 
-      // Recopilar datos
       const customerName = document.getElementById('customer-name').value;
       const customerPhone = document.getElementById('customer-phone').value;
       const serviceType = document.getElementById('service-type').value;
@@ -499,54 +385,49 @@
       const deliveryTime = document.getElementById('delivery-time').value;
       const notes = document.getElementById('order-notes').value;
 
-      // Crear mensaje del pedido
-      let orderMessage = `🍴 NUEVO PEDIDO - BARGON MADRID\n\n`;
-      orderMessage += `👤 Cliente: ${customerName}\n`;
-      orderMessage += `📞 Teléfono: ${customerPhone}\n`;
-      orderMessage += `📦 Tipo: ${serviceType === 'delivery' ? '🏠 Delivery' : serviceType === 'pickup' ? '🏃 Recogida' : '🍽️ En mesa'}\n`;
-
-      if (serviceType === 'delivery') {
-        orderMessage += `📍 Dirección: ${deliveryAddress}\n`;
-      } else if (serviceType === 'table') {
-        orderMessage += `🍽️ Mesa: ${tableNumber || 'Sin especificar'}\n`;
-      }
-
-      if (deliveryTime) {
-        orderMessage += `⏰ Hora: ${deliveryTime}\n`;
-      }
-
-      orderMessage += `\n📋 PEDIDO:\n`;
-      cart.forEach(item => {
-        orderMessage += `• ${item.quantity}x ${item.name} - ${(item.price * item.quantity).toFixed(2)}€\n`;
-      });
-
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
 
-      orderMessage += `\n💰 Subtotal: ${subtotal.toFixed(2)}€\n`;
-      orderMessage += `🎁 Descuento (15%): -${discount.toFixed(2)}€\n`;
-      orderMessage += `💳 TOTAL: ${total.toFixed(2)}€\n`;
+      const orderData = {
+        orderNumber: orderNumber++,
+        timestamp: Date.now(),
+        status: 'pending',
+        customerName,
+        customerPhone,
+        serviceType,
+        deliveryAddress: serviceType === 'delivery' ? deliveryAddress : null,
+        tableNumber: serviceType === 'table' ? tableNumber : null,
+        deliveryTime,
+        notes,
+        items: cart,
+        subtotal,
+        discount,
+        total,
+        location: 'Madrid'
+      };
 
-      if (notes) {
-        orderMessage += `\n📝 Notas: ${notes}`;
-      }
-
-      // Enviar por WhatsApp (en producción esto iría a un sistema backend)
-      const phoneNumber = '+34634056627'; // Número del restaurante
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
-
-      // Abrir WhatsApp
-      window.open(whatsappURL, '_blank');
-
-      // Mostrar confirmación
-      alert('✅ Pedido enviado correctamente. Te contactaremos por WhatsApp para confirmar.');
-
-      // Limpiar carrito
-      cart = [];
-      updateCart();
-      this.reset();
+      // ENVIAR A FIREBASE
+      database.ref('orders').push(orderData)
+        .then(() => {
+          alert('✅ ¡Pedido enviado correctamente! El restaurante lo recibirá en unos segundos.');
+          cart = [];
+          updateCart();
+          document.getElementById('orderForm').reset();
+        })
+        .catch((error) => {
+          alert('❌ Error al enviar el pedido. Inténtalo de nuevo.');
+          console.error(error);
+        });
     });
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 3000);
+    }
   </script>
 </body>
 </html>
