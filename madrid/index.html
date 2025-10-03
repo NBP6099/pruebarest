@@ -1,3 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BARGON Madrid | Pedidos</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="../">🍴 BARGON</a></div>
+      <ul class="nav-links">
+        <li><a href="../">🏠 Inicio</a></li>
+        <li><a href="../sevilla/">🌟 Sevilla</a></li>
+        <li><a href="../donbenito/">⭐ Don Benito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=80');">
+    <div class="hero-content">
+      <span class="hero-badge">✨ BARGON Madrid</span>
+      <h1 class="hero-title">Sabores de la Capital</h1>
+      <p class="hero-subtitle">Recoge tu pedido en Plaza Mayor</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="recommendations-section">
+      <div class="section-header">
+        <span class="section-badge">⭐ Recomendaciones</span>
+        <h2>Lo Mejor de BARGON Madrid</h2>
+      </div>
+
+      <div class="recommendations-grid">
+        <!-- ZERO -->
+        <div class="recommendation-card special" style="border: 3px solid #9b59b6;">
+          <div class="recommendation-badge limited" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+            ⚡ LIMITADO
+          </div>
+          <div class="recommendation-image">
+            <img src="https://images.unsplash.com/photo-1604908554274-44cb73d88ab9?auto=format&fit=crop&w=800&q=80" alt="Zero">
+          </div>
+          <div class="recommendation-content">
+            <h3 style="color: #9b59b6;">⭐ ZERO</h3>
+            <p class="recommendation-description">Experiencia gastronómica única.</p>
+            <div class="recommendation-footer">
+              <div class="price-info">
+                <span class="price-old">35€</span>
+                <span class="price-large">28€</span>
+              </div>
+              <button class="btn-add-to-order" onclick="addToOrder('Zero', 28, 'zero')">
+                ⚡ Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cocido -->
+        <div class="recommendation-card">
+          <div class="recommendation-image">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido">
+          </div>
+          <div class="recommendation-content">
+            <h3>🏆 Cocido Madrileño</h3>
+            <p class="recommendation-description">Tradición de tres vuelcos.</p>
+            <div class="recommendation-footer">
+              <div class="price-info">
+                <span class="price-large">12€</span>
+              </div>
+              <button class="btn-add-to-order" onclick="addToOrder('Cocido Madrileño', 12, 'cocido')">
+                🛒 Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calamares -->
+        <div class="recommendation-card">
+          <div class="recommendation-image">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Calamares">
+          </div>
+          <div class="recommendation-content">
+            <h3>🦑 Bocadillo Calamares</h3>
+            <p class="recommendation-description">Frescos del día.</p>
+            <div class="recommendation-footer">
+              <div class="price-info">
+                <span class="price-large">7€</span>
+              </div>
+              <button class="btn-add-to-order" onclick="addToOrder('Bocadillo Calamares', 7, 'calamares')">
+                🛒 Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-section">
+      <div class="section-header">
+        <span class="section-badge">🛒 Tu Pedido</span>
+        <h2>Recogida en Plaza Mayor</h2>
+      </div>
+
+      <div class="order-container">
+        <div class="order-cart">
+          <h3>🛒 Carrito</h3>
+          <div id="order-items" class="order-items">
+            <p class="empty-cart">Carrito vacío</p>
+          </div>
+
+          <div class="order-summary">
+            <div class="summary-line">
+              <span>Subtotal:</span>
+              <span id="subtotal">0.00€</span>
+            </div>
+            <div class="summary-line">
+              <span>Descuento (15%):</span>
+              <span id="discount">-0.00€</span>
+            </div>
+            <div class="summary-line total">
+              <span><strong>Total:</strong></span>
+              <span id="total"><strong>0.00€</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-form">
+          <h3>📦 Datos</h3>
+          <form id="orderForm">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" id="customer-name" required>
+            </div>
+
+            <div class="form-group">
+              <label>Teléfono *</label>
+              <input type="tel" id="customer-phone" required>
+            </div>
+
+            <div class="form-group">
+              <label>Comentarios</label>
+              <textarea id="order-notes" rows="2"></textarea>
+            </div>
+
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+              <strong>🏃 Recogida en Plaza Mayor</strong><br>
+              <span style="font-size: 0.9rem;">Listo en 15-20 min</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-send-order" id="submit-btn">
+              📱 Hacer Pedido
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 BARGON Madrid</p>
+    </div>
+  </footer>
 
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -16,233 +181,158 @@
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
 
-    let tables = {};
-    const totalTables = 10;
+    let cart = [];
+    let isSubmitting = false;
+    let lastClickTime = {};
 
-    // Inicializar mesas
-    initializeTables();
+    function addToOrder(name, price, id) {
+      const now = Date.now();
+      const timeSince = lastClickTime[id] ? now - lastClickTime[id] : 1000;
 
-    function initializeTables() {
-      const grid = document.getElementById('tables-grid');
-      grid.innerHTML = '';
+      if (timeSince < 500) return;
+      lastClickTime[id] = now;
 
-      for (let i = 1; i <= totalTables; i++) {
-        const tableCard = document.createElement('div');
-        tableCard.className = 'table-card free';
-        tableCard.id = `table-${i}`;
-        tableCard.onclick = () => openTableModal(i);
-
-        tableCard.innerHTML = `
-          <div class="table-number">${i}</div>
-          <div class="table-status free">Libre</div>
-          <div class="table-info"></div>
-        `;
-
-        grid.appendChild(tableCard);
-      }
-
-      // Cargar datos desde Firebase
-      database.ref('tables').on('value', (snapshot) => {
-        tables = snapshot.val() || {};
-        updateTablesDisplay();
-      });
-    }
-
-    function updateTablesDisplay() {
-      let occupiedCount = 0;
-      let totalRevenue = 0;
-
-      for (let i = 1; i <= totalTables; i++) {
-        const tableCard = document.getElementById(`table-${i}`);
-        const tableData = tables[i];
-
-        if (tableData && tableData.status === 'occupied') {
-          tableCard.className = 'table-card occupied';
-          tableCard.querySelector('.table-status').textContent = 'Ocupada';
-          tableCard.querySelector('.table-status').className = 'table-status occupied';
-          tableCard.querySelector('.table-info').textContent = `${tableData.customerName} - ${tableData.total.toFixed(2)}€`;
-          occupiedCount++;
-          totalRevenue += tableData.total;
-        } else {
-          tableCard.className = 'table-card free';
-          tableCard.querySelector('.table-status').textContent = 'Libre';
-          tableCard.querySelector('.table-status').className = 'table-status free';
-          tableCard.querySelector('.table-info').textContent = '';
-        }
-      }
-
-      document.getElementById('occupied-tables').textContent = occupiedCount;
-      document.getElementById('free-tables').textContent = totalTables - occupiedCount;
-      document.getElementById('total-revenue').textContent = `${totalRevenue.toFixed(2)}€`;
-    }
-
-    function openTableModal(tableNumber) {
-      document.getElementById('table-modal').classList.add('show');
-      document.getElementById('modal-title').textContent = `Mesa #${tableNumber}`;
-      document.getElementById('table-number').value = tableNumber;
-
-      const tableData = tables[tableNumber];
-
-      if (tableData && tableData.status === 'occupied') {
-        // Cargar datos existentes
-        document.getElementById('order-id').value = tableData.orderId || '';
-        document.getElementById('customer-name').value = tableData.customerName || '';
-        document.getElementById('customer-phone').value = tableData.customerPhone || '';
-        document.getElementById('order-notes').value = tableData.notes || '';
-
-        // Cargar items
-        const itemsList = document.getElementById('order-items-list');
-        itemsList.innerHTML = '';
-        tableData.items.forEach(item => {
-          addItemRow(item.name, item.price, item.quantity);
-        });
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.quantity++;
       } else {
-        // Nueva mesa
-        document.getElementById('table-form').reset();
-        document.getElementById('order-items-list').innerHTML = `
-          <div class="order-item-row">
-            <input type="text" placeholder="Nombre del plato" class="item-name" required>
-            <input type="number" placeholder="Precio" step="0.01" class="item-price" required>
-            <input type="number" placeholder="Cant." min="1" value="1" class="item-quantity" required>
-            <button type="button" class="btn-remove-item" onclick="removeItem(this)">×</button>
+        cart.push({ id, name, price, quantity: 1 });
+      }
+
+      updateCart();
+      showNotification(`✓ ${name} añadido`);
+    }
+
+    function updateCart() {
+      const itemsDiv = document.getElementById('order-items');
+      const subtotalEl = document.getElementById('subtotal');
+      const discountEl = document.getElementById('discount');
+      const totalEl = document.getElementById('total');
+
+      if (cart.length === 0) {
+        itemsDiv.innerHTML = '<p class="empty-cart">Carrito vacío</p>';
+        subtotalEl.textContent = '0.00€';
+        discountEl.textContent = '-0.00€';
+        totalEl.innerHTML = '<strong>0.00€</strong>';
+        return;
+      }
+
+      let html = '';
+      let subtotal = 0;
+
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        html += `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <strong>${item.name}</strong>
+              <div class="cart-item-controls">
+                <button onclick="changeQty(${idx}, -1)" class="btn-qty">-</button>
+                <span class="qty">${item.quantity}</span>
+                <button onclick="changeQty(${idx}, 1)" class="btn-qty">+</button>
+              </div>
+            </div>
+            <div class="cart-item-price">
+              <span>${itemTotal.toFixed(2)}€</span>
+              <button onclick="removeItem(${idx})" class="btn-remove">🗑️</button>
+            </div>
           </div>
         `;
+      });
+
+      itemsDiv.innerHTML = html;
+
+      const discount = subtotal * 0.15;
+      const total = subtotal - discount;
+
+      subtotalEl.textContent = `${subtotal.toFixed(2)}€`;
+      discountEl.textContent = `-${discount.toFixed(2)}€`;
+      totalEl.innerHTML = `<strong>${total.toFixed(2)}€</strong>`;
+    }
+
+    function changeQty(idx, delta) {
+      cart[idx].quantity += delta;
+      if (cart[idx].quantity <= 0) {
+        cart.splice(idx, 1);
       }
-
-      updateTicketPreview();
+      updateCart();
     }
 
-    function closeTableModal() {
-      document.getElementById('table-modal').classList.remove('show');
-      document.getElementById('table-form').reset();
+    function removeItem(idx) {
+      cart.splice(idx, 1);
+      updateCart();
     }
 
-    function addItemRow(name = '', price = '', quantity = 1) {
-      const itemsList = document.getElementById('order-items-list');
-      const row = document.createElement('div');
-      row.className = 'order-item-row';
-      row.innerHTML = `
-        <input type="text" placeholder="Nombre del plato" class="item-name" value="${name}" required>
-        <input type="number" placeholder="Precio" step="0.01" class="item-price" value="${price}" required>
-        <input type="number" placeholder="Cant." min="1" value="${quantity}" class="item-quantity" required>
-        <button type="button" class="btn-remove-item" onclick="removeItem(this)">×</button>
-      `;
-      itemsList.appendChild(row);
-    }
-
-    function removeItem(btn) {
-      btn.closest('.order-item-row').remove();
-    }
-
-    document.getElementById('table-form').addEventListener('submit', function(e) {
+    document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const tableNumber = parseInt(document.getElementById('table-number').value);
-      const customerName = document.getElementById('customer-name').value;
-      const customerPhone = document.getElementById('customer-phone').value;
+      if (isSubmitting) return;
+      if (cart.length === 0) {
+        alert('❌ Carrito vacío');
+        return;
+      }
+
+      const name = document.getElementById('customer-name').value;
+      const phone = document.getElementById('customer-phone').value;
       const notes = document.getElementById('order-notes').value;
 
-      // Recoger items
-      const items = [];
-      let total = 0;
-      document.querySelectorAll('.order-item-row').forEach(row => {
-        const name = row.querySelector('.item-name').value;
-        const price = parseFloat(row.querySelector('.item-price').value);
-        const quantity = parseInt(row.querySelector('.item-quantity').value);
+      const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+      const discount = subtotal * 0.15;
+      const total = subtotal - discount;
 
-        if (name && price && quantity) {
-          items.push({ name, price, quantity });
-          total += price * quantity;
-        }
-      });
+      const items = cart.map(i => `• ${i.quantity}x ${i.name} (${(i.price * i.quantity).toFixed(2)}€)`).join('\n');
+      const msg = `¿Confirmar pedido?\n\n${items}\n\n💰 Total: ${total.toFixed(2)}€\n\n🏃 Recoge en 15-20 min`;
 
-      const tableData = {
-        status: 'occupied',
-        tableNumber,
-        customerName,
-        customerPhone,
-        notes,
-        items,
-        total,
+      if (!confirm(msg)) return;
+
+      isSubmitting = true;
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = '⏳ Enviando...';
+
+      const orderData = {
+        orderNumber: Date.now(),
         timestamp: Date.now(),
-        orderId: Date.now()
+        status: 'pending',
+        customerName: name,
+        customerPhone: phone,
+        serviceType: 'pickup',
+        deliveryTime: 'Inmediato',
+        notes,
+        items: cart,
+        subtotal,
+        discount,
+        total,
+        location: 'Madrid'
       };
 
-      database.ref(`tables/${tableNumber}`).set(tableData)
-        .then(() => {
-          showNotification('✅ Mesa actualizada correctamente');
-          updateTicketPreview();
-        })
-        .catch((error) => {
-          showNotification('❌ Error al actualizar mesa', 'error');
-          console.error(error);
-        });
+      try {
+        await database.ref('orders').push(orderData);
+        alert('✅ ¡Pedido enviado!\nRecoge en Plaza Mayor en 15-20 min');
+        cart = [];
+        updateCart();
+        this.reset();
+      } catch (error) {
+        alert('❌ Error al enviar');
+        console.error(error);
+      } finally {
+        setTimeout(() => {
+          isSubmitting = false;
+          btn.disabled = false;
+          btn.textContent = '📱 Hacer Pedido';
+        }, 2000);
+      }
     });
 
-    function closeTable() {
-      const tableNumber = parseInt(document.getElementById('table-number').value);
-
-      if (confirm(`¿Liberar la mesa #${tableNumber}?`)) {
-        database.ref(`tables/${tableNumber}`).remove()
-          .then(() => {
-            showNotification('✅ Mesa liberada');
-            closeTableModal();
-          })
-          .catch((error) => {
-            showNotification('❌ Error al liberar mesa', 'error');
-          });
-      }
-    }
-
-    function updateTicketPreview() {
-      const tableNumber = document.getElementById('table-number').value;
-      const customerName = document.getElementById('customer-name').value || 'Cliente';
-
-      document.getElementById('ticket-table-number').textContent = tableNumber;
-      document.getElementById('ticket-customer-name').textContent = customerName;
-      document.getElementById('ticket-date').textContent = new Date().toLocaleString('es-ES');
-
-      const itemsContainer = document.getElementById('ticket-items');
-      itemsContainer.innerHTML = '';
-      let total = 0;
-
-      document.querySelectorAll('.order-item-row').forEach(row => {
-        const name = row.querySelector('.item-name').value;
-        const price = parseFloat(row.querySelector('.item-price').value) || 0;
-        const quantity = parseInt(row.querySelector('.item-quantity').value) || 1;
-        const subtotal = price * quantity;
-        total += subtotal;
-
-        if (name) {
-          itemsContainer.innerHTML += `
-            <div class="ticket-item">
-              <span>${quantity}x ${name}</span>
-              <span>${subtotal.toFixed(2)}€</span>
-            </div>
-          `;
-        }
-      });
-
-      document.getElementById('ticket-total-amount').textContent = `${total.toFixed(2)}€`;
-    }
-
-    // Actualizar preview en tiempo real
-    document.getElementById('order-items-list').addEventListener('input', updateTicketPreview);
-    document.getElementById('customer-name').addEventListener('input', updateTicketPreview);
-
-    function printTicket() {
-      updateTicketPreview();
-      setTimeout(() => {
-        window.print();
-      }, 100);
-    }
-
-    function showNotification(message, type = 'success') {
-      const notification = document.createElement('div');
-      notification.className = `notification ${type}`;
-      notification.textContent = message;
-      document.body.appendChild(notification);
-      setTimeout(() => notification.remove(), 3000);
+    function showNotification(msg) {
+      const div = document.createElement('div');
+      div.className = 'notification';
+      div.textContent = msg;
+      div.style.cssText = 'position:fixed;top:20px;right:20px;background:#27ae60;color:white;padding:15px 25px;border-radius:10px;z-index:9999;animation:slideIn 0.5s';
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 3000);
     }
   </script>
 </body>

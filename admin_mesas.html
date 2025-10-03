@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BARGON - Gestión de Mesas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding: 20px; }
+
+    .admin-header { background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(243, 156, 18, 0.3); }
+    .admin-header h1 { color: #1a1a2e; font-size: 2rem; font-weight: 800; }
+
+    /* MESAS GRID */
+    .tables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .table-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 3px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; position: relative; }
+    .table-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4); }
+    .table-card.occupied { border-color: #e74c3c; background: rgba(231, 76, 60, 0.2); }
+    .table-card.free { border-color: #27ae60; background: rgba(39, 174, 96, 0.2); }
+    .table-number { font-size: 3rem; font-weight: 900; color: #f1c40f; }
+    .table-status { margin-top: 10px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+    .table-status.free { color: #27ae60; }
+    .table-status.occupied { color: #e74c3c; }
+    .table-info { font-size: 0.85rem; color: #ecf0f1; margin-top: 8px; }
+
+    /* MODAL */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; align-items: center; justify-content: center; overflow-y: auto; }
+    .modal.show { display: flex; }
+    .modal-content { background: white; border-radius: 16px; padding: 30px; max-width: 800px; width: 95%; max-height: 90vh; overflow-y: auto; margin: 20px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f39c12; padding-bottom: 15px; }
+    .modal-title { font-size: 1.8rem; font-weight: 800; color: #1a1a2e; }
+    .modal-close { background: #e74c3c; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; color: white; font-weight: 700; }
+
+    /* FORMULARIO */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 700; color: #2c3e50; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 1rem; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #f39c12; outline: none; }
+
+    /* ITEMS DEL PEDIDO */
+    .order-items-list { background: #f8f9fa; padding: 15px; border-radius: 12px; margin: 20px 0; }
+    .order-item-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; background: white; padding: 10px; border-radius: 8px; }
+    .order-item-row input { flex: 2; }
+    .order-item-row input[type="number"] { flex: 1; }
+    .btn-remove-item { background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    .btn-add-item { background: #27ae60; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 700; width: 100%; margin-top: 10px; }
+
+    /* BOTONES */
+    .btn-group { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+    .btn { padding: 14px 28px; border: none; border-radius: 25px; font-weight: 700; cursor: pointer; font-size: 1.1rem; transition: all 0.3s; }
+    .btn-primary { background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: #1a1a2e; }
+    .btn-success { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; }
+    .btn-danger { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; }
+    .btn-print { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+    /* TICKET DE IMPRESIÓN */
+    .ticket-preview { background: white; padding: 30px; border-radius: 12px; margin: 20px 0; font-family: 'Courier New', monospace; max-width: 300px; margin: 20px auto; border: 2px dashed #95a5a6; }
+    .ticket-header { text-align: center; border-bottom: 2px solid #2c3e50; padding-bottom: 15px; margin-bottom: 15px; }
+    .ticket-logo { font-size: 2rem; font-weight: 900; color: #f39c12; letter-spacing: 2px; }
+    .ticket-info { font-size: 0.85rem; color: #7f8c8d; }
+    .ticket-separator { border-top: 1px dashed #95a5a6; margin: 15px 0; }
+    .ticket-item { display: flex; justify-content: space-between; margin: 8px 0; font-size: 0.9rem; }
+    .ticket-total { font-size: 1.2rem; font-weight: 900; border-top: 2px solid #2c3e50; padding-top: 10px; margin-top: 10px; }
+    .ticket-footer { text-align: center; margin-top: 15px; font-size: 0.85rem; color: #7f8c8d; }
+
+    /* OCULTAR AL IMPRIMIR */
+    @media print {
+      body * { visibility: hidden; }
+      .ticket-preview, .ticket-preview * { visibility: visible; }
+      .ticket-preview { position: fixed; left: 0; top: 0; width: 80mm; margin: 0; padding: 10px; border: none; }
+      .btn, .modal-close, .modal-header button { display: none !important; }
+    }
+
+    .stats-summary { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; margin-bottom: 30px; color: white; }
+    .stats-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 900; color: #f1c40f; }
+    .stat-label { font-size: 0.9rem; opacity: 0.8; }
+
+    .notification { position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 8px 30px rgba(39, 174, 96, 0.4); z-index: 4000; animation: slideIn 0.5s ease; }
+    .notification.error { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+  </style>
+</head>
+<body>
+  <div class="admin-header">
+    <h1>🍴 BARGON - Gestión de Mesas</h1>
+    <p>Control de mesas y pedidos en tiempo real</p>
+  </div>
+  <div class="stats-summary">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-value" id="occupied-tables">0</div>
+        <div class="stat-label">Mesas Ocupadas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="free-tables">10</div>
+        <div class="stat-label">Mesas Libres</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="total-revenue">0€</div>
+        <div class="stat-label">Total del Día</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tables-grid" id="tables-grid">
+    <!-- Las mesas se generarán aquí -->
+  </div>
+
+  <!-- Modal de Mesa -->
+  <div id="table-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Mesa #1</h2>
+        <button class="modal-close" onclick="closeTableModal()">×</button>
+      </div>
+
+      <form id="table-form">
+        <input type="hidden" id="table-number">
+        <input type="hidden" id="order-id">
+
+        <div class="form-group">
+          <label>Nombre del Cliente</label>
+          <input type="text" id="customer-name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono (opcional)</label>
+          <input type="tel" id="customer-phone">
+        </div>
+
+        <div class="form-group">
+          <label>Productos del Pedido</label>
+          <div class="order-items-list" id="order-items-list">
+            <div class="order-item-row">
+              <input type="text" placeholder="Nombre del plato" class="item-name" required>
+              <input type="number" placeholder="Precio" step="0.01" class="item-price" required>
+              <input type="number" placeholder="Cant." min="1" value="1" class="item-quantity" required>
+              <button type="button" class="btn-remove-item" onclick="removeItem(this)">×</button>
+            </div>
+          </div>
+          <button type="button" class="btn-add-item" onclick="addItemRow()">+ Añadir Producto</button>
+        </div>
+
+        <div class="form-group">
+          <label>Notas Adicionales</label>
+          <textarea id="order-notes" rows="2"></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success">💾 Guardar Pedido</button>
+          <button type="button" class="btn btn-print" onclick="printTicket()">🖨️ Imprimir Ticket</button>
+          <button type="button" class="btn btn-danger" onclick="closeTable()">🔓 Liberar Mesa</button>
+        </div>
+      </form>
+
+      <!-- Vista previa del ticket -->
+      <div class="ticket-preview" id="ticket-preview">
+        <div class="ticket-header">
+          <div class="ticket-logo">BARGON</div>
+          <div class="ticket-info">Plaza Mayor - Madrid</div>
+          <div class="ticket-info">Tel: +34 634 056 627</div>
+          <div class="ticket-info" id="ticket-date"></div>
+        </div>
+
+        <div class="ticket-separator"></div>
+
+        <div style="text-align: center; font-weight: 900; font-size: 1.2rem; margin: 10px 0;">
+          MESA <span id="ticket-table-number"></span>
+        </div>
+
+        <div class="ticket-separator"></div>
+
+        <div>
+          <strong>Cliente:</strong> <span id="ticket-customer-name"></span>
+        </div>
+
+        <div class="ticket-separator"></div>
+
+        <div id="ticket-items">
+          <!-- Items se generan aquí -->
+        </div>
+
+        <div class="ticket-total">
+          <div class="ticket-item">
+            <span>TOTAL:</span>
+            <span id="ticket-total-amount">0.00€</span>
+          </div>
+        </div>
+
+        <div class="ticket-footer">
+          <p>¡Gracias por su visita!</p>
+          <p>www.bargon.es</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDjbJFg-GeioAxBAf3wh9zQ4M-CB7klx1Y",
+      authDomain: "gonbar-8cd74.firebaseapp.com",
+      databaseURL: "https://gonbar-8cd74-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gonbar-8cd74",
+      storageBucket: "gonbar-8cd74.firebasestorage.app",
+      messagingSenderId: "865095320231",
+      appId: "1:865095320231:web:d6598f1ddfd93672c39182"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    let tables = {};
+    const totalTables = 10;
+
+    // Inicializar mesas
+    initializeTables();
+
+    function initializeTables() {
+      const grid = document.getElementById('tables-grid');
+      grid.innerHTML = '';
+
+      for (let i = 1; i <= totalTables; i++) {
+        const tableCard = document.createElement('div');
+        tableCard.className = 'table-card free';
+        tableCard.id = `table-${i}`;
+        tableCard.onclick = () => openTableModal(i);
+
+        tableCard.innerHTML = `
+          <div class="table-number">${i}</div>
+          <div class="table-status free">Libre</div>
+          <div class="table-info"></div>
+        `;
+
+        grid.appendChild(tableCard);
+      }
+
+      // Cargar datos desde Firebase
+      database.ref('tables').on('value', (snapshot) => {
+        tables = snapshot.val() || {};
+        updateTablesDisplay();
+      });
+    }
+
+    function updateTablesDisplay() {
+      let occupiedCount = 0;
+      let totalRevenue = 0;
+
+      for (let i = 1; i <= totalTables; i++) {
+        const tableCard = document.getElementById(`table-${i}`);
+        const tableData = tables[i];
+
+        if (tableData && tableData.status === 'occupied') {
+          tableCard.className = 'table-card occupied';
+          tableCard.querySelector('.table-status').textContent = 'Ocupada';
+          tableCard.querySelector('.table-status').className = 'table-status occupied';
+          tableCard.querySelector('.table-info').textContent = `${tableData.customerName} - ${tableData.total.toFixed(2)}€`;
+          occupiedCount++;
+          totalRevenue += tableData.total;
+        } else {
+          tableCard.className = 'table-card free';
+          tableCard.querySelector('.table-status').textContent = 'Libre';
+          tableCard.querySelector('.table-status').className = 'table-status free';
+          tableCard.querySelector('.table-info').textContent = '';
+        }
+      }
+
+      document.getElementById('occupied-tables').textContent = occupiedCount;
+      document.getElementById('free-tables').textContent = totalTables - occupiedCount;
+      document.getElementById('total-revenue').textContent = `${totalRevenue.toFixed(2)}€`;
+    }
+
+    function openTableModal(tableNumber) {
+      document.getElementById('table-modal').classList.add('show');
+      document.getElementById('modal-title').textContent = `Mesa #${tableNumber}`;
+      document.getElementById('table-number').value = tableNumber;
+
+      const tableData = tables[tableNumber];
+
+      if (tableData && tableData.status === 'occupied') {
+        // Cargar datos existentes
+        document.getElementById('order-id').value = tableData.orderId || '';
+        document.getElementById('customer-name').value = tableData.customerName || '';
+        document.getElementById('customer-phone').value = tableData.customerPhone || '';
+        document.getElementById('order-notes').value = tableData.notes || '';
+
+        // Cargar items
+        const itemsList = document.getElementById('order-items-list');
+        itemsList.innerHTML = '';
+        tableData.items.forEach(item => {
+          addItemRow(item.name, item.price, item.quantity);
+        });
+      } else {
+        // Nueva mesa
+        document.getElementById('table-form').reset();
+        document.getElementById('order-items-list').innerHTML = `
+          <div class="order-item-row">
+            <input type="text" placeholder="Nombre del plato" class="item-name" required>
+            <input type="number" placeholder="Precio" step="0.01" class="item-price" required>
+            <input type="number" placeholder="Cant." min="1" value="1" class="item-quantity" required>
+            <button type="button" class="btn-remove-item" onclick="removeItem(this)">×</button>
+          </div>
+        `;
+      }
+
+      updateTicketPreview();
+    }
+
+    function closeTableModal() {
+      document.getElementById('table-modal').classList.remove('show');
+      document.getElementById('table-form').reset();
+    }
+
+    function addItemRow(name = '', price = '', quantity = 1) {
+      const itemsList = document.getElementById('order-items-list');
+      const row = document.createElement('div');
+      row.className = 'order-item-row';
+      row.innerHTML = `
+        <input type="text" placeholder="Nombre del plato" class="item-name" value="${name}" required>
+        <input type="number" placeholder="Precio" step="0.01" class="item-price" value="${price}" required>
+        <input type="number" placeholder="Cant." min="1" value="${quantity}" class="item-quantity" required>
+        <button type="button" class="btn-remove-item" onclick="removeItem(this)">×</button>
+      `;
+      itemsList.appendChild(row);
+    }
+
+    function removeItem(btn) {
+      btn.closest('.order-item-row').remove();
+    }
+
+    document.getElementById('table-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const tableNumber = parseInt(document.getElementById('table-number').value);
+      const customerName = document.getElementById('customer-name').value;
+      const customerPhone = document.getElementById('customer-phone').value;
+      const notes = document.getElementById('order-notes').value;
+
+      // Recoger items
+      const items = [];
+      let total = 0;
+      document.querySelectorAll('.order-item-row').forEach(row => {
+        const name = row.querySelector('.item-name').value;
+        const price = parseFloat(row.querySelector('.item-price').value);
+        const quantity = parseInt(row.querySelector('.item-quantity').value);
+
+        if (name && price && quantity) {
+          items.push({ name, price, quantity });
+          total += price * quantity;
+        }
+      });
+
+      const tableData = {
+        status: 'occupied',
+        tableNumber,
+        customerName,
+        customerPhone,
+        notes,
+        items,
+        total,
+        timestamp: Date.now(),
+        orderId: Date.now()
+      };
+
+      database.ref(`tables/${tableNumber}`).set(tableData)
+        .then(() => {
+          showNotification('✅ Mesa actualizada correctamente');
+          updateTicketPreview();
+        })
+        .catch((error) => {
+          showNotification('❌ Error al actualizar mesa', 'error');
+          console.error(error);
+        });
+    });
+
+    function closeTable() {
+      const tableNumber = parseInt(document.getElementById('table-number').value);
+
+      if (confirm(`¿Liberar la mesa #${tableNumber}?`)) {
+        database.ref(`tables/${tableNumber}`).remove()
+          .then(() => {
+            showNotification('✅ Mesa liberada');
+            closeTableModal();
+          })
+          .catch((error) => {
+            showNotification('❌ Error al liberar mesa', 'error');
+          });
+      }
+    }
+
+    function updateTicketPreview() {
+      const tableNumber = document.getElementById('table-number').value;
+      const customerName = document.getElementById('customer-name').value || 'Cliente';
+
+      document.getElementById('ticket-table-number').textContent = tableNumber;
+      document.getElementById('ticket-customer-name').textContent = customerName;
+      document.getElementById('ticket-date').textContent = new Date().toLocaleString('es-ES');
+
+      const itemsContainer = document.getElementById('ticket-items');
+      itemsContainer.innerHTML = '';
+      let total = 0;
+
+      document.querySelectorAll('.order-item-row').forEach(row => {
+        const name = row.querySelector('.item-name').value;
+        const price = parseFloat(row.querySelector('.item-price').value) || 0;
+        const quantity = parseInt(row.querySelector('.item-quantity').value) || 1;
+        const subtotal = price * quantity;
+        total += subtotal;
+
+        if (name) {
+          itemsContainer.innerHTML += `
+            <div class="ticket-item">
+              <span>${quantity}x ${name}</span>
+              <span>${subtotal.toFixed(2)}€</span>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById('ticket-total-amount').textContent = `${total.toFixed(2)}€`;
+    }
+
+    // Actualizar preview en tiempo real
+    document.getElementById('order-items-list').addEventListener('input', updateTicketPreview);
+    document.getElementById('customer-name').addEventListener('input', updateTicketPreview);
+
+    function printTicket() {
+      updateTicketPreview();
+      setTimeout(() => {
+        window.print();
+      }, 100);
+    }
+
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 3000);
+    }
+  </script>
+</body>
+</html>
