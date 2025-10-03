@@ -217,7 +217,7 @@
       }
 
       updateCart();
-      showNotification(`✓ ${name} añadido`);
+      showNotification('✓ ' + name + ' añadido');
     }
 
     function updateCart() {
@@ -241,22 +241,18 @@
         const itemTotal = item.price * item.quantity;
         subtotal += itemTotal;
 
-        html += `
-          <div class="cart-item">
-            <div class="cart-item-info">
-              <strong>${item.name}</strong>
-              <div class="cart-item-controls">
-                <button onclick="changeQty(${idx}, -1)" class="btn-qty">-</button>
-                <span class="qty">${item.quantity}</span>
-                <button onclick="changeQty(${idx}, 1)" class="btn-qty">+</button>
-              </div>
-            </div>
-            <div class="cart-item-price">
-              <span>${itemTotal.toFixed(2)}€</span>
-              <button onclick="removeItem(${idx})" class="btn-remove">🗑️</button>
-            </div>
-          </div>
-        `;
+        html += '<div class="cart-item">';
+        html += '<div class="cart-item-info">';
+        html += '<strong>' + item.name + '</strong>';
+        html += '<div class="cart-item-controls">';
+        html += '<button onclick="changeQty(' + idx + ', -1)" class="btn-qty">-</button>';
+        html += '<span class="qty">' + item.quantity + '</span>';
+        html += '<button onclick="changeQty(' + idx + ', 1)" class="btn-qty">+</button>';
+        html += '</div></div>';
+        html += '<div class="cart-item-price">';
+        html += '<span>' + itemTotal.toFixed(2) + '€</span>';
+        html += '<button onclick="removeItem(' + idx + ')" class="btn-remove">🗑️</button>';
+        html += '</div></div>';
       });
 
       itemsDiv.innerHTML = html;
@@ -264,9 +260,9 @@
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
 
-      subtotalEl.textContent = `${subtotal.toFixed(2)}€`;
-      discountEl.textContent = `-${discount.toFixed(2)}€`;
-      totalEl.innerHTML = `<strong>${total.toFixed(2)}€</strong>`;
+      subtotalEl.textContent = subtotal.toFixed(2) + '€';
+      discountEl.textContent = '-' + discount.toFixed(2) + '€';
+      totalEl.innerHTML = '<strong>' + total.toFixed(2) + '€</strong>';
     }
 
     function changeQty(idx, delta) {
@@ -282,7 +278,6 @@
       updateCart();
     }
 
-    // Mostrar/ocultar selector de mesa
     document.getElementById('service-type').addEventListener('change', function() {
       const tableGroup = document.getElementById('table-group');
       const infoBox = document.getElementById('info-box');
@@ -331,13 +326,17 @@
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
 
-      const items = cart.map(i => `• ${i.quantity}x ${i.name} (${(i.price * i.quantity).toFixed(2)}€)`).join('\n');
-      let msg = `¿Confirmar pedido?\n\n${items}\n\n💰 Total: ${total.toFixed(2)}€\n\n`;
+      let itemsList = '';
+      cart.forEach(i => {
+        itemsList += '• ' + i.quantity + 'x ' + i.name + ' (' + (i.price * i.quantity).toFixed(2) + '€)\n';
+      });
+
+      let msg = '¿Confirmar pedido?\n\n' + itemsList + '\n💰 Total: ' + total.toFixed(2) + '€\n\n';
 
       if (serviceType === 'table') {
-        msg += `🍽️ Mesa ${tableNumber}\nTe lo traeremos a la mesa`;
+        msg += '🍽️ Mesa ' + tableNumber + '\nTe lo traeremos a la mesa';
       } else {
-        msg += `🏃 Recogida en 15-20 min`;
+        msg += '🏃 Recogida en 15-20 min';
       }
 
       if (!confirm(msg)) return;
@@ -350,44 +349,66 @@
       const orderData = {
         orderNumber: Date.now(),
         timestamp: Date.now(),
-        status: 'pending',
+        status: serviceType === 'table' ? 'occupied' : 'pending',
         customerName: name,
         customerPhone: phone,
         serviceType: serviceType,
-        tableNumber: serviceType === 'table' ? tableNumber : null,
+        tableNumber: serviceType === 'table' ? parseInt(tableNumber) : null,
         deliveryTime: 'Inmediato',
-        notes,
+        notes: notes || '',
         items: cart,
-        subtotal,
-        discount,
-        total,
+        subtotal: subtotal,
+        discount: discount,
+        total: total,
         location: 'Madrid'
       };
 
       try {
-        // Guardar en diferentes lugares según el tipo
         if (serviceType === 'table') {
-          // Pedidos de mesa van a /tables
-          await database.ref(`tables/${tableNumber}`).set({
-            ...orderData,
-            status: 'occupied'
-          });
+          const tableRef = database.ref('tables/' + tableNumber);
+          const snapshot = await tableRef.once('value');
+
+          if (snapshot.exists()) {
+            const existingOrder = snapshot.val();
+            const updatedItems = existingOrder.items.slice();
+
+            cart.forEach(newItem => {
+              const existingItemIndex = updatedItems.findIndex(item => item.id === newItem.id);
+              if (existingItemIndex >= 0) {
+                updatedItems[existingItemIndex].quantity += newItem.quantity;
+              } else {
+                updatedItems.push(newItem);
+              }
+            });
+
+            const newSubtotal = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const newDiscount = newSubtotal * 0.15;
+            const newTotal = newSubtotal - newDiscount;
+
+            await tableRef.update({
+              items: updatedItems,
+              subtotal: newSubtotal,
+              discount: newDiscount,
+              total: newTotal,
+              timestamp: Date.now()
+            });
+
+            alert('✅ ¡Items añadidos a Mesa ' + tableNumber + '!\n\nTotal actualizado: ' + newTotal.toFixed(2) + '€');
+          } else {
+            await tableRef.set(orderData);
+            alert('✅ ¡Pedido enviado!\n\nMesa ' + tableNumber + '\nTe lo traeremos enseguida');
+          }
         } else {
-          // Pedidos para llevar van a /orders
           await database.ref('orders').push(orderData);
+          alert('✅ ¡Pedido enviado!\n\nRecoge en Plaza Mayor en 15-20 min');
         }
 
-        const successMsg = serviceType === 'table' 
-          ? `✅ ¡Pedido enviado!\n\nMesa ${tableNumber}\nTe lo traeremos enseguida`
-          : '✅ ¡Pedido enviado!\n\nRecoge en Plaza Mayor en 15-20 min';
-
-        alert(successMsg);
         cart = [];
         updateCart();
         this.reset();
       } catch (error) {
-        alert('❌ Error al enviar');
-        console.error(error);
+        alert('❌ Error al enviar pedido: ' + error.message);
+        console.error('Error:', error);
       } finally {
         setTimeout(() => {
           isSubmitting = false;
