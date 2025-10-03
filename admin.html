@@ -55,7 +55,6 @@
     .btn-print { background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: #1a1a2e; }
     .btn-reject { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; }
 
-    /* TICKET */
     .ticket-preview { background: white; padding: 30px; font-family: 'Courier New', monospace; max-width: 300px; margin: 20px auto; border: 2px dashed #95a5a6; display: none; }
     .ticket-header { text-align: center; border-bottom: 2px solid #2c3e50; padding-bottom: 15px; margin-bottom: 15px; }
     .ticket-logo { font-size: 2rem; font-weight: 900; color: #3498db; letter-spacing: 2px; }
@@ -86,11 +85,11 @@
   </div>
 
   <div class="nav-buttons">
+    <a href="cocina.html" class="nav-btn">👨‍🍳 Cocina</a>
     <a href="admin.html" class="nav-btn active">🏃 Pedidos Recogida</a>
     <a href="admin_mesas.html" class="nav-btn">🍽️ Gestión de Mesas</a>
   </div>
 
-  <!-- SELECTOR DE FECHA -->
   <div class="date-selector">
     <button class="date-nav-btn" onclick="changeDay(-1)">◀ Anterior</button>
     <input type="date" id="date-picker" class="date-input" onchange="selectDate()">
@@ -125,7 +124,6 @@
     </div>
   </div>
 
-  <!-- Ticket oculto para imprimir -->
   <div class="ticket-preview" id="ticket-preview">
     <div class="ticket-header">
       <div class="ticket-logo">BARGON</div>
@@ -158,7 +156,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
   <script>
-    const firebaseConfig = {
+    var firebaseConfig = {
       apiKey: "AIzaSyDjbJFg-GeioAxBAf3wh9zQ4M-CB7klx1Y",
       authDomain: "gonbar-8cd74.firebaseapp.com",
       databaseURL: "https://gonbar-8cd74-default-rtdb.europe-west1.firebasedatabase.app",
@@ -169,31 +167,30 @@
     };
 
     firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+    var database = firebase.database();
 
-    let orders = {};
-    let currentDate = new Date();
+    var orders = {};
+    var currentDate = new Date();
 
-    // Inicializar
     initializeDatePicker();
 
     function initializeDatePicker() {
-      const picker = document.getElementById('date-picker');
+      var picker = document.getElementById('date-picker');
       picker.value = formatDateForInput(currentDate);
       updateDateDisplay();
       loadOrdersForDate(currentDate);
     }
 
     function formatDateForInput(date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
+      var year = date.getFullYear();
+      var month = String(date.getMonth() + 1).padStart(2, '0');
+      var day = String(date.getDate()).padStart(2, '0');
+      return year + '-' + month + '-' + day;
     }
 
     function updateDateDisplay() {
-      const display = document.getElementById('current-date-display');
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      var display = document.getElementById('current-date-display');
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       display.textContent = currentDate.toLocaleDateString('es-ES', options);
     }
 
@@ -205,7 +202,7 @@
     }
 
     function selectDate() {
-      const picker = document.getElementById('date-picker');
+      var picker = document.getElementById('date-picker');
       currentDate = new Date(picker.value + 'T00:00:00');
       updateDateDisplay();
       loadOrdersForDate(currentDate);
@@ -219,9 +216,9 @@
     }
 
     function loadOrdersForDate(date) {
-      const startOfDay = new Date(date);
+      var startOfDay = new Date(date);
       startOfDay.setHours(0, 0, 0, 0);
-      const endOfDay = new Date(date);
+      var endOfDay = new Date(date);
       endOfDay.setHours(23, 59, 59, 999);
 
       orders = {};
@@ -230,11 +227,12 @@
         .orderByChild('timestamp')
         .startAt(startOfDay.getTime())
         .endAt(endOfDay.getTime())
-        .once('value', (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const order = childSnapshot.val();
+        .once('value', function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+            var order = childSnapshot.val();
             if (order.serviceType === 'pickup') {
-              orders[childSnapshot.key] = { ...order, id: childSnapshot.key };
+              orders[childSnapshot.key] = order;
+              orders[childSnapshot.key].id = childSnapshot.key;
             }
           });
           renderOrders();
@@ -242,15 +240,15 @@
         });
     }
 
-    // Actualización en tiempo real solo para hoy
-    const today = new Date();
+    var today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    database.ref('orders').orderByChild('timestamp').startAt(today.getTime()).on('child_added', (snapshot) => {
+    database.ref('orders').orderByChild('timestamp').startAt(today.getTime()).on('child_added', function(snapshot) {
       if (isToday(currentDate)) {
-        const order = snapshot.val();
+        var order = snapshot.val();
         if (order.serviceType === 'pickup') {
-          orders[snapshot.key] = { ...order, id: snapshot.key };
+          orders[snapshot.key] = order;
+          orders[snapshot.key].id = snapshot.key;
           if (order.status === 'pending') {
             showNotification('🔔 Nuevo pedido de recogida!');
           }
@@ -260,178 +258,160 @@
       }
     });
 
-    database.ref('orders').on('child_changed', (snapshot) => {
+    database.ref('orders').on('child_changed', function(snapshot) {
       if (orders[snapshot.key]) {
-        orders[snapshot.key] = { ...snapshot.val(), id: snapshot.key };
+        orders[snapshot.key] = snapshot.val();
+        orders[snapshot.key].id = snapshot.key;
         renderOrders();
         updateStats();
       }
     });
 
     function isToday(date) {
-      const today = new Date();
-      return date.getDate() === today.getDate() &&
-             date.getMonth() === today.getMonth() &&
-             date.getFullYear() === today.getFullYear();
+      var now = new Date();
+      return date.getDate() === now.getDate() &&
+             date.getMonth() === now.getMonth() &&
+             date.getFullYear() === now.getFullYear();
     }
 
     function renderOrders() {
-      const container = document.getElementById('orders-container');
-      const ordersList = Object.values(orders).sort((a, b) => b.timestamp - a.timestamp);
+      var container = document.getElementById('orders-container');
+      var ordersList = [];
+      for (var key in orders) {
+        ordersList.push(orders[key]);
+      }
+      ordersList.sort(function(a, b) { return b.timestamp - a.timestamp; });
 
       if (ordersList.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <div style="font-size: 4rem; opacity: 0.5;">📦</div>
-            <div style="font-size: 1.2rem;">No hay pedidos de recogida este día</div>
-          </div>
-        `;
+        container.innerHTML = '<div class="empty-state"><div style="font-size: 4rem; opacity: 0.5;">📦</div><div style="font-size: 1.2rem;">No hay pedidos de recogida este día</div></div>';
         return;
       }
 
-      container.innerHTML = ordersList.map(order => `
-        <div class="order-card ${order.status === 'pending' ? 'new' : ''}">
-          <div class="order-header">
-            <div class="order-id">Pedido #${order.orderNumber || order.id.substr(0, 8)}</div>
-            <div class="order-status status-${order.status}">
-              ${{'pending': 'Pendiente', 'preparing': 'Preparando', 'ready': 'Listo'}[order.status]}
-            </div>
-          </div>
+      var html = '';
+      for (var i = 0; i < ordersList.length; i++) {
+        var order = ordersList[i];
+        var statusText = order.status === 'pending' ? 'Pendiente' : (order.status === 'preparing' ? 'Preparando' : 'Listo');
 
-          <div class="order-info">
-            <div class="info-row">
-              <span class="info-label">👤 Cliente:</span>
-              <span class="info-value">${order.customerName}</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">📞 Teléfono:</span>
-              <span class="info-value">${order.customerPhone}</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">⏰ Hora:</span>
-              <span class="info-value">${new Date(order.timestamp).toLocaleTimeString('es-ES')}</span>
-            </div>
-            ${order.notes ? `
-              <div class="info-row">
-                <span class="info-label">📝 Notas:</span>
-                <span class="info-value">${order.notes}</span>
-              </div>
-            ` : ''}
-          </div>
+        html += '<div class="order-card ' + (order.status === 'pending' ? 'new' : '') + '">';
+        html += '<div class="order-header">';
+        html += '<div class="order-id">Pedido #' + (order.orderNumber || order.id.substr(0, 8)) + '</div>';
+        html += '<div class="order-status status-' + order.status + '">' + statusText + '</div>';
+        html += '</div>';
 
-          <div class="order-items">
-            ${order.items.map(item => `
-              <div class="order-item">
-                <span>${item.name}</span>
-                <div>
-                  <span class="item-qty">x${item.quantity}</span>
-                  <span style="font-weight: 800; color: #3498db;">${(item.price * item.quantity).toFixed(2)}€</span>
-                </div>
-              </div>
-            `).join('')}
-          </div>
+        html += '<div class="order-info">';
+        html += '<div class="info-row"><span class="info-label">👤 Cliente:</span><span class="info-value">' + order.customerName + '</span></div>';
+        html += '<div class="info-row"><span class="info-label">📞 Teléfono:</span><span class="info-value">' + order.customerPhone + '</span></div>';
+        html += '<div class="info-row"><span class="info-label">⏰ Hora:</span><span class="info-value">' + new Date(order.timestamp).toLocaleTimeString('es-ES') + '</span></div>';
+        if (order.notes) {
+          html += '<div class="info-row"><span class="info-label">📝 Notas:</span><span class="info-value">' + order.notes + '</span></div>';
+        }
+        html += '</div>';
 
-          <div class="order-total">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-              <span>Subtotal:</span>
-              <span>${order.subtotal.toFixed(2)}€</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-              <span>Descuento:</span>
-              <span style="color: #27ae60;">-${order.discount.toFixed(2)}€</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px;">
-              <span style="font-size: 1.2rem;"><strong>TOTAL:</strong></span>
-              <span class="total-amount">${order.total.toFixed(2)}€</span>
-            </div>
-          </div>
+        html += '<div class="order-items">';
+        for (var j = 0; j < order.items.length; j++) {
+          var item = order.items[j];
+          var itemTotal = item.price * item.quantity;
+          html += '<div class="order-item">';
+          html += '<span>' + item.name + '</span>';
+          html += '<div><span class="item-qty">x' + item.quantity + '</span>';
+          html += '<span style="font-weight: 800; color: #3498db;">' + itemTotal.toFixed(2) + '€</span></div>';
+          html += '</div>';
+        }
+        html += '</div>';
 
-          <div class="order-actions">
-            ${getActionButtons(order)}
-            <button class="action-btn btn-print" onclick="printTicket('${order.id}')">
-              🖨️ Imprimir Ticket
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
+        html += '<div class="order-total">';
+        html += '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Subtotal:</span><span>' + order.subtotal.toFixed(2) + '€</span></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Descuento:</span><span style="color: #27ae60;">-' + order.discount.toFixed(2) + '€</span></div>';
+        html += '<div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px;">';
+        html += '<span style="font-size: 1.2rem;"><strong>TOTAL:</strong></span>';
+        html += '<span class="total-amount">' + order.total.toFixed(2) + '€</span></div>';
+        html += '</div>';
 
-    function getActionButtons(order) {
-      switch(order.status) {
-        case 'pending':
-          return `
-            <button class="action-btn btn-accept" onclick="updateStatus('${order.id}', 'preparing')">
-              ✅ Aceptar
-            </button>
-            <button class="action-btn btn-reject" onclick="rejectOrder('${order.id}')">
-              ❌ Rechazar
-            </button>
-          `;
-        case 'preparing':
-          return `
-            <button class="action-btn btn-ready" onclick="updateStatus('${order.id}', 'ready')">
-              🔔 Marcar Listo
-            </button>
-          `;
-        case 'ready':
-          return `<span style="color: #27ae60; font-weight: 700;">✓ Listo para recoger</span>`;
-        default:
-          return '';
+        html += '<div class="order-actions">';
+        if (order.status === 'pending') {
+          html += '<button class="action-btn btn-accept" onclick="updateStatus(\'' + order.id + '\', \'preparing\')">✅ Aceptar</button>';
+          html += '<button class="action-btn btn-reject" onclick="rejectOrder(\'' + order.id + '\')">❌ Rechazar</button>';
+        } else if (order.status === 'preparing') {
+          html += '<button class="action-btn btn-ready" onclick="updateStatus(\'' + order.id + '\', \'ready\')">🔔 Marcar Listo</button>';
+        } else {
+          html += '<span style="color: #27ae60; font-weight: 700;">✓ Listo para recoger</span>';
+        }
+        html += '<button class="action-btn btn-print" onclick="printTicket(\'' + order.id + '\')">🖨️ Imprimir Ticket</button>';
+        html += '</div>';
+        html += '</div>';
       }
+
+      container.innerHTML = html;
     }
 
     function updateStatus(orderId, newStatus) {
-      database.ref(`orders/${orderId}`).update({ status: newStatus })
-        .then(() => showNotification('Estado actualizado'));
+      database.ref('orders/' + orderId).update({ status: newStatus })
+        .then(function() { 
+          showNotification('Estado actualizado'); 
+        });
     }
 
     function rejectOrder(orderId) {
       if (confirm('¿Rechazar pedido?')) {
-        database.ref(`orders/${orderId}`).remove();
+        database.ref('orders/' + orderId).remove();
       }
     }
 
     function printTicket(orderId) {
-      const order = orders[orderId];
+      var order = orders[orderId];
       if (!order) return;
 
       document.getElementById('ticket-date').textContent = new Date(order.timestamp).toLocaleString('es-ES');
       document.getElementById('ticket-customer').textContent = order.customerName;
       document.getElementById('ticket-phone').textContent = order.customerPhone;
 
-      const itemsHtml = order.items.map(item => `
-        <div class="ticket-item">
-          <span>${item.quantity}x ${item.name}</span>
-          <span>${(item.price * item.quantity).toFixed(2)}€</span>
-        </div>
-      `).join('');
+      var itemsHtml = '';
+      for (var i = 0; i < order.items.length; i++) {
+        var item = order.items[i];
+        var itemTotal = item.price * item.quantity;
+        itemsHtml += '<div class="ticket-item"><span>' + item.quantity + 'x ' + item.name + '</span><span>' + itemTotal.toFixed(2) + '€</span></div>';
+      }
 
       document.getElementById('ticket-items').innerHTML = itemsHtml;
-      document.getElementById('ticket-total').textContent = `${order.total.toFixed(2)}€`;
+      document.getElementById('ticket-total').textContent = order.total.toFixed(2) + '€';
 
       document.getElementById('ticket-preview').style.display = 'block';
-      setTimeout(() => {
+      setTimeout(function() {
         window.print();
         document.getElementById('ticket-preview').style.display = 'none';
       }, 100);
     }
 
     function updateStats() {
-      const ordersList = Object.values(orders);
-      document.getElementById('total-orders').textContent = ordersList.length;
-      document.getElementById('pending-count').textContent = ordersList.filter(o => o.status === 'pending').length;
-      document.getElementById('ready-count').textContent = ordersList.filter(o => o.status === 'ready').length;
+      var ordersList = [];
+      for (var key in orders) {
+        ordersList.push(orders[key]);
+      }
 
-      const revenue = ordersList.reduce((sum, o) => sum + o.total, 0);
-      document.getElementById('revenue').textContent = `${revenue.toFixed(2)}€`;
+      var pending = 0;
+      var ready = 0;
+      var revenue = 0;
+
+      for (var i = 0; i < ordersList.length; i++) {
+        if (ordersList[i].status === 'pending') pending++;
+        if (ordersList[i].status === 'ready') ready++;
+        revenue += ordersList[i].total;
+      }
+
+      document.getElementById('total-orders').textContent = ordersList.length;
+      document.getElementById('pending-count').textContent = pending;
+      document.getElementById('ready-count').textContent = ready;
+      document.getElementById('revenue').textContent = revenue.toFixed(2) + '€';
     }
 
     function showNotification(msg) {
-      const div = document.createElement('div');
+      var div = document.createElement('div');
       div.className = 'notification';
       div.textContent = msg;
       document.body.appendChild(div);
-      setTimeout(() => div.remove(), 3000);
+      setTimeout(function() { 
+        div.remove(); 
+      }, 3000);
     }
   </script>
 </body>
