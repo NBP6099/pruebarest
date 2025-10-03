@@ -22,7 +22,7 @@
     <div class="hero-content">
       <span class="hero-badge">✨ BARGON Madrid</span>
       <h1 class="hero-title">Sabores de la Capital</h1>
-      <p class="hero-subtitle">Recoge tu pedido en Plaza Mayor</p>
+      <p class="hero-subtitle">En local o para llevar</p>
     </div>
   </section>
 
@@ -34,7 +34,6 @@
       </div>
 
       <div class="recommendations-grid">
-        <!-- ZERO -->
         <div class="recommendation-card special" style="border: 3px solid #9b59b6;">
           <div class="recommendation-badge limited" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
             ⚡ LIMITADO
@@ -50,14 +49,11 @@
                 <span class="price-old">35€</span>
                 <span class="price-large">28€</span>
               </div>
-              <button class="btn-add-to-order" onclick="addToOrder('Zero', 28, 'zero')">
-                ⚡ Añadir
-              </button>
+              <button class="btn-add-to-order" onclick="addToOrder('Zero', 28, 'zero')">⚡ Añadir</button>
             </div>
           </div>
         </div>
 
-        <!-- Cocido -->
         <div class="recommendation-card">
           <div class="recommendation-image">
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cocido">
@@ -69,14 +65,11 @@
               <div class="price-info">
                 <span class="price-large">12€</span>
               </div>
-              <button class="btn-add-to-order" onclick="addToOrder('Cocido Madrileño', 12, 'cocido')">
-                🛒 Añadir
-              </button>
+              <button class="btn-add-to-order" onclick="addToOrder('Cocido Madrileño', 12, 'cocido')">🛒 Añadir</button>
             </div>
           </div>
         </div>
 
-        <!-- Calamares -->
         <div class="recommendation-card">
           <div class="recommendation-image">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Calamares">
@@ -88,9 +81,7 @@
               <div class="price-info">
                 <span class="price-large">7€</span>
               </div>
-              <button class="btn-add-to-order" onclick="addToOrder('Bocadillo Calamares', 7, 'calamares')">
-                🛒 Añadir
-              </button>
+              <button class="btn-add-to-order" onclick="addToOrder('Bocadillo Calamares', 7, 'calamares')">🛒 Añadir</button>
             </div>
           </div>
         </div>
@@ -100,7 +91,7 @@
     <section class="order-section">
       <div class="section-header">
         <span class="section-badge">🛒 Tu Pedido</span>
-        <h2>Recogida en Plaza Mayor</h2>
+        <h2>Finalizar Pedido</h2>
       </div>
 
       <div class="order-container">
@@ -127,7 +118,7 @@
         </div>
 
         <div class="order-form">
-          <h3>📦 Datos</h3>
+          <h3>📦 Datos del Pedido</h3>
           <form id="orderForm">
             <div class="form-group">
               <label>Nombre *</label>
@@ -140,17 +131,43 @@
             </div>
 
             <div class="form-group">
-              <label>Comentarios</label>
-              <textarea id="order-notes" rows="2"></textarea>
+              <label>Tipo de servicio *</label>
+              <select id="service-type" required>
+                <option value="">Selecciona...</option>
+                <option value="table">🍽️ Comer en el restaurante</option>
+                <option value="pickup">🏃 Recogida para llevar</option>
+              </select>
             </div>
 
-            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
-              <strong>🏃 Recogida en Plaza Mayor</strong><br>
-              <span style="font-size: 0.9rem;">Listo en 15-20 min</span>
+            <div class="form-group" id="table-group" style="display:none;">
+              <label>Número de mesa *</label>
+              <select id="table-number">
+                <option value="">Selecciona tu mesa...</option>
+                <option value="1">Mesa 1</option>
+                <option value="2">Mesa 2</option>
+                <option value="3">Mesa 3</option>
+                <option value="4">Mesa 4</option>
+                <option value="5">Mesa 5</option>
+                <option value="6">Mesa 6</option>
+                <option value="7">Mesa 7</option>
+                <option value="8">Mesa 8</option>
+                <option value="9">Mesa 9</option>
+                <option value="10">Mesa 10</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Comentarios</label>
+              <textarea id="order-notes" rows="2" placeholder="Alergias, preferencias..."></textarea>
+            </div>
+
+            <div id="info-box" style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0; display: none;">
+              <strong id="info-title"></strong><br>
+              <span id="info-text" style="font-size: 0.9rem;"></span>
             </div>
 
             <button type="submit" class="btn btn-primary btn-send-order" id="submit-btn">
-              📱 Hacer Pedido
+              📱 Enviar Pedido
             </button>
           </form>
         </div>
@@ -265,6 +282,31 @@
       updateCart();
     }
 
+    // Mostrar/ocultar selector de mesa
+    document.getElementById('service-type').addEventListener('change', function() {
+      const tableGroup = document.getElementById('table-group');
+      const infoBox = document.getElementById('info-box');
+      const infoTitle = document.getElementById('info-title');
+      const infoText = document.getElementById('info-text');
+
+      if (this.value === 'table') {
+        tableGroup.style.display = 'block';
+        infoBox.style.display = 'block';
+        infoBox.style.background = '#e8f5e9';
+        infoTitle.textContent = '🍽️ Comer en el restaurante';
+        infoText.textContent = 'Selecciona tu mesa. Te traeremos el pedido a la mesa.';
+      } else if (this.value === 'pickup') {
+        tableGroup.style.display = 'none';
+        infoBox.style.display = 'block';
+        infoBox.style.background = '#fff3e0';
+        infoTitle.textContent = '🏃 Recogida en Plaza Mayor';
+        infoText.textContent = 'Listo en 15-20 minutos. Te avisaremos cuando esté preparado.';
+      } else {
+        tableGroup.style.display = 'none';
+        infoBox.style.display = 'none';
+      }
+    });
+
     document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -276,14 +318,27 @@
 
       const name = document.getElementById('customer-name').value;
       const phone = document.getElementById('customer-phone').value;
+      const serviceType = document.getElementById('service-type').value;
+      const tableNumber = document.getElementById('table-number').value;
       const notes = document.getElementById('order-notes').value;
+
+      if (serviceType === 'table' && !tableNumber) {
+        alert('❌ Selecciona el número de mesa');
+        return;
+      }
 
       const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
       const discount = subtotal * 0.15;
       const total = subtotal - discount;
 
       const items = cart.map(i => `• ${i.quantity}x ${i.name} (${(i.price * i.quantity).toFixed(2)}€)`).join('\n');
-      const msg = `¿Confirmar pedido?\n\n${items}\n\n💰 Total: ${total.toFixed(2)}€\n\n🏃 Recoge en 15-20 min`;
+      let msg = `¿Confirmar pedido?\n\n${items}\n\n💰 Total: ${total.toFixed(2)}€\n\n`;
+
+      if (serviceType === 'table') {
+        msg += `🍽️ Mesa ${tableNumber}\nTe lo traeremos a la mesa`;
+      } else {
+        msg += `🏃 Recogida en 15-20 min`;
+      }
 
       if (!confirm(msg)) return;
 
@@ -298,7 +353,8 @@
         status: 'pending',
         customerName: name,
         customerPhone: phone,
-        serviceType: 'pickup',
+        serviceType: serviceType,
+        tableNumber: serviceType === 'table' ? tableNumber : null,
         deliveryTime: 'Inmediato',
         notes,
         items: cart,
@@ -309,8 +365,23 @@
       };
 
       try {
-        await database.ref('orders').push(orderData);
-        alert('✅ ¡Pedido enviado!\nRecoge en Plaza Mayor en 15-20 min');
+        // Guardar en diferentes lugares según el tipo
+        if (serviceType === 'table') {
+          // Pedidos de mesa van a /tables
+          await database.ref(`tables/${tableNumber}`).set({
+            ...orderData,
+            status: 'occupied'
+          });
+        } else {
+          // Pedidos para llevar van a /orders
+          await database.ref('orders').push(orderData);
+        }
+
+        const successMsg = serviceType === 'table' 
+          ? `✅ ¡Pedido enviado!\n\nMesa ${tableNumber}\nTe lo traeremos enseguida`
+          : '✅ ¡Pedido enviado!\n\nRecoge en Plaza Mayor en 15-20 min';
+
+        alert(successMsg);
         cart = [];
         updateCart();
         this.reset();
@@ -321,7 +392,7 @@
         setTimeout(() => {
           isSubmitting = false;
           btn.disabled = false;
-          btn.textContent = '📱 Hacer Pedido';
+          btn.textContent = '📱 Enviar Pedido';
         }, 2000);
       }
     });
